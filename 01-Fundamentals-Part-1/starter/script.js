@@ -208,29 +208,29 @@ GOOD LUCK �
 ////////////////////////////////////////////////
 // START LOGICAL OPERATORS
 
-const hasDriverLicense = true; // A
-const hasGoodVision = true; // B
+// const hasDriverLicense = true; // A
+// const hasGoodVision = true; // B
 
-console.log(hasDriverLicense && hasGoodVision); // false
-console.log(hasDriverLicense || hasGoodVision); // true
-console.log(!hasDriverLicense); // false
+// console.log(hasDriverLicense && hasGoodVision); // false
+// console.log(hasDriverLicense || hasGoodVision); // true
+// console.log(!hasDriverLicense); // false
 
-const shouldDrive = hasDriverLicense && hasGoodVision;
+// const shouldDrive = hasDriverLicense && hasGoodVision;
 
-if (shouldDrive) {
-    console.log("Sarah is able to drive!");
-} else {
-    console.log("Sarah might kill someone...no driving!");
-}
+// if (shouldDrive) {
+//     console.log("Sarah is able to drive!");
+// } else {
+//     console.log("Sarah might kill someone...no driving!");
+// }
 
-const isTired = false; // C
-console.log(hasDriverLicense || hasGoodVision || isTired);
+// const isTired = false; // C
+// console.log(hasDriverLicense || hasGoodVision || isTired);
 
-if (hasDriverLicense && hasDriverLicense && !isTired) {
-    console.log("Sarah is able to drive!");
-} else {
-    console.log("Sarah might kill someone...no driving!");
-}
+// if (hasDriverLicense && hasDriverLicense && !isTired) {
+//     console.log("Sarah is able to drive!");
+// } else {
+//     console.log("Sarah might kill someone...no driving!");
+// }
 
 // END LOGICAL OPERATORS
 //////////////////////////////////////////////
@@ -258,47 +258,91 @@ Test data:
 GOOD LUCK �
 */
 // SCORES
-score1Dolphins = 90;
-score2Dolphins = 95;
-score3Dolphins = 100;
+// score1Dolphins = 90;
+// score2Dolphins = 95;
+// score3Dolphins = 100;
 
-score1Koalas = 90;
-score2Koalas = 95;
-score3Koalas = 100;
+// score1Koalas = 90;
+// score2Koalas = 95;
+// score3Koalas = 100;
 
-//SCORE AVERAGES
-averageScoreDolphins = (score1Dolphins + score2Dolphins + score3Dolphins) / 3;
+// //SCORE AVERAGES
+// averageScoreDolphins = (score1Dolphins + score2Dolphins + score3Dolphins) / 3;
 
-averageScoreKoalas = (score1Koalas + score2Koalas + score3Koalas) / 3;
+// averageScoreKoalas = (score1Koalas + score2Koalas + score3Koalas) / 3;
 
-console.log(averageScoreDolphins, averageScoreKoalas);
+// console.log(averageScoreDolphins, averageScoreKoalas);
 
-//COMPARE AVERAGES
-if (averageScoreDolphins === averageScoreKoalas) {
-    console.log("DRAW!");
-} else if (averageScoreDolphins > averageScoreKoalas) {
-    console.log("Dolphin's Win!");
-} else {
-    console.log("Koala's Win!");
-}
+// //COMPARE AVERAGES
+// if (averageScoreDolphins === averageScoreKoalas) {
+//     console.log("DRAW!");
+// } else if (averageScoreDolphins > averageScoreKoalas) {
+//     console.log("Dolphin's Win!");
+// } else {
+//     console.log("Koala's Win!");
+// }
 
 //COMPARE AVERAGES BONUS 1
-if (averageScoreDolphins === averageScoreKoalas && averageScoreDolphins > 100) {
-    console.log("DRAW!");
-} else if (
-    averageScoreDolphins > averageScoreKoalas &&
-    averageScoreDolphins > 100
-) {
-    console.log("Dolphin's Win!");
-} else if (
-    averageScoreKoalas > averageScoreDolphins &&
-    averageScoreDolphins > 100
-) {
-    console.log("Koala's Win!");
-} else {
-    console.log("No One Wins!");
-}
+// if (averageScoreDolphins === averageScoreKoalas && averageScoreDolphins > 100) {
+//     console.log("DRAW!");
+// } else if (
+//     averageScoreDolphins > averageScoreKoalas &&
+//     averageScoreDolphins > 100
+// ) {
+//     console.log("Dolphin's Win!");
+// } else if (
+//     averageScoreKoalas > averageScoreDolphins &&
+//     averageScoreDolphins > 100
+// ) {
+//     console.log("Koala's Win!");
+// } else {
+//     console.log("No One Wins!");
+// }
 
 // END CODING CHALLENGE #3
 //////////////////////////////////////////////
 // START THE SWITCH STATEMENT LECTURE
+
+// const day = "saturday";
+
+// switch (day) {
+//     case "monday": // Day === Monday
+//         console.log("Clean Kitchen");
+//         console.log("Go Grocery Shopping");
+//         break;
+//     case "tuesday":
+//         console.log("Clean Living Room");
+//         break;
+//     case "wednesday":
+//     case "thursday":
+//         console.log("Clean Bathroom");
+//         break;
+//     case "friday":
+//         console.log("Clean Bedroom");
+//         break;
+//     case "saturday":
+//     case "sunday":
+//         console.log("Clean Yard");
+//         break;
+//     default:
+//         console.log("Not a valid day!");
+// }
+
+if (day === "monday") {
+    console.log("Clean Kitchen");
+    console.log("Go Grocery Shopping");
+} else if (day === "tuesday") {
+    console.log("Clean Living Room");
+} else if (day === "wednesday" || day === "thursday") {
+    console.log("Clean Bathroom");
+} else if (day === "friday") {
+    console.log("Clean Bedroom");
+} else if (day === "saturday" || day === "sunday") {
+    console.log("Clean Yard");
+} else {
+    console.log("Not a valid day!");
+}
+
+//END THE SWITCH STATEMENT LECTURE
+///////////////////////////////////////////////
+//START STATEMENTS AND EXPRESSIONS LECTURE
