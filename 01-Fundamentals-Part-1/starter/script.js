@@ -198,3 +198,5 @@ if (height) {
 // END TRUTHY and  FALSY VALUES LECTURE
 ///////////////////////////////////////////////////
 //START EQUALITY OPERATORS: == vs. ===
+
+const age = 18;
