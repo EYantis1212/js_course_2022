@@ -103,3 +103,41 @@ console.log(cent);
 
 // END TAKING DECISIONS: IF / ELSE STATEMENTS
 ///////////////////////////////////////////////////////////
+// CODING CHALLENGE #2
+
+/*
+Use the BMI example from Challenge #1, and the code you already wrote, and
+improve it.
+Your tasks:
+1. Print a nice output to the console, saying who has the higher BMI. The message
+is either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark's!"
+2. Use a template literal to include the BMI values in the outputs. Example: "Mark's
+BMI (28.3) is higher than John's (23.9)!"
+Hint: Use an if/else statement �
+GOOD LUCK �
+*/
+
+//Test Data Set 1
+let markWtKg = 78;
+let markHtM = 1.69;
+let johnWtKg = 92;
+let johnHtM = 1.65;
+
+//BMI Data Set 1 = Here I learned how to Round to two decimal places!
+let markBMI =
+    Math.round((markWtKg / markHtM ** 2 + Number.EPSILON) * 100) / 100;
+let johnBMI =
+    Math.round((johnWtKg / johnHtM ** 2 + Number.EPSILON) * 100) / 100;
+
+console.log(markBMI, johnBMI);
+
+//CHALLENGE #2 SOLUTION
+if (markBMI > johnBMI) {
+    console.log(
+        `Mark's BMI of ${markBMI} is higher than John's BMI of ${johnBMI}!`
+    );
+} else {
+    console.log(
+        `John's BMI of ${johnBMI} is higher than Mark's BMI of ${markBMI}!`
+    );
+}
