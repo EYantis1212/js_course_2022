@@ -29,3 +29,5 @@
 // let markHigherBMI2 = markBMI2 > johnBMI2;
 // console.log(markHigherBMI2);
 //Challenge 1 - What I Learned - I Learned I could have used less variables and still used 'const because  every-time you reload the webpage it clears the memory and stores all the variables all over again..
+
+//Strings and Template Literals Lecture and Notes
