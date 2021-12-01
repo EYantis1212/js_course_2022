@@ -206,3 +206,4 @@ if (age === 18) console.log("You just became an adult");
 
 // END EQUALITY OPERATORS: == vs. ===
 ////////////////////////////////////////////////
+// START BOOLEAN LOGIC LECTURE
