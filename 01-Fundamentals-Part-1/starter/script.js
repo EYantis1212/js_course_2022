@@ -172,26 +172,26 @@ GOOD LUCK �
 
 //Anything else...like a number that is not '0' or a string...will be converted to true.  That is Truthy values.
 
-console.log(Boolean(0)); //false
-console.log(Boolean(undefined)); //false
-console.log(Boolean("string")); //true
-console.log(Boolean({})); //true
-console.log(Boolean(" ")); //false
+// console.log(Boolean(0)); //false
+// console.log(Boolean(undefined)); //false
+// console.log(Boolean("string")); //true
+// console.log(Boolean({})); //true
+// console.log(Boolean(" ")); //false
 
-const money = 1;
-if (money) {
-    console.log(`Don't spend it all `);
-} else {
-    console.log("You should get a job!");
-}
+// const money = 1;
+// if (money) {
+//     console.log(`Don't spend it all `);
+// } else {
+//     console.log("You should get a job!");
+// }
 // Here zero is a falsy value so converted to false and anything not zero is truthy and becomes true.
 
-let height;
-if (height) {
-    console.log("Yay! height is defined!");
-} else {
-    console.log("Height is Undefined :(");
-}
+// let height;
+// if (height) {
+//     console.log("Yay! height is defined!");
+// } else {
+//     console.log("Height is Undefined :(");
+// }
 
 //Here height is a falsy value because it is undefined...so converted to false.
 
@@ -200,3 +200,9 @@ if (height) {
 //START EQUALITY OPERATORS: == vs. ===
 
 const age = 18;
+if (age === 18) console.log("You just became an adult");
+// '===' is a strict equality comparison operator so it will not use coercion to change a value
+// '==' will use coercion and convert a type to check boolean value
+
+// END EQUALITY OPERATORS: == vs. ===
+////////////////////////////////////////////////
