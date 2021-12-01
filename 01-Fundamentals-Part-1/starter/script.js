@@ -361,3 +361,4 @@ if (23 > 14) {
 
 // END STATEMENTS AND EXPRESSIONS LECTURE
 ///////////////////////////////////////////////////////
+// START THE CONDITIONAL (TERNARY) OPERATOR LECTURE
