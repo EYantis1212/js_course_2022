@@ -63,3 +63,42 @@
 
 //END STRINGS AND TEMPLATE LITERALS LECTURE
 //START TAKING DECISIONS: IF / ELSE STATEMENTS
+
+//this is called an "IF/ELSE Control Structure"
+
+// if (){
+
+// } else {
+
+// }
+
+const age = 18;
+
+if (age >= 18) {
+    console.log("Sara can start driver's License 🚗");
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Can take driver's test in ${yearsLeft} years.`);
+}
+
+//Century is not defined...This is because the variable is only accessible in the control block it was created in.
+// const birthYear = 1991;
+
+// if (birthYear <= 2000) {
+//     let century = 20;
+// } else {
+//     let century = 21;
+// }
+// console.log(century);
+
+//Here is the way if you needed to access the variable
+const birthYr = 2012;
+let cent;
+if (birthYr <= 2000) {
+    cent = 20;
+} else {
+    cent = 21;
+}
+console.log(cent);
+
+// END TAKING DECISIONS: IF / ELSE STATEMENTS
