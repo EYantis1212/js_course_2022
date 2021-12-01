@@ -143,3 +143,4 @@ if (markBMI > johnBMI) {
 }
 // END CODING CHALLENGE #2
 ///////////////////////////////////////////////////////////
+//START TYPE CONVERSION and COERCION LECTURE
