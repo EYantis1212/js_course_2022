@@ -349,16 +349,34 @@ GOOD LUCK �
 
 //An expression is a line of code that produces a value like :
 //EXPRESSIONS
-3 + 4;
-1991;
-true & false;
+// 3 + 4;
+// 1991;
+// true & false;
 
-// If an expression is the individual words or components...then a statement is a complete sentence.  Pretty much any line of code that ends in a semicolon is a statement.  It may have components that are expressions and produce values...but the statement itself does not produce a value.
-//STATEMENTS
-if (23 > 14) {
-    const str = "23 is HUGE";
-}
+// // If an expression is the individual words or components...then a statement is a complete sentence.  Pretty much any line of code that ends in a semicolon is a statement.  It may have components that are expressions and produce values...but the statement itself does not produce a value.
+// //STATEMENTS
+// if (23 > 14) {
+//     const str = "23 is HUGE";
+// }
 
 // END STATEMENTS AND EXPRESSIONS LECTURE
 ///////////////////////////////////////////////////////
 // START THE CONDITIONAL (TERNARY) OPERATOR LECTURE
+
+const age = 23;
+// age >= 18
+//     ? console.log("I like to drink wine.")
+//     : console.log("I like to drink water.");
+
+//With the conditional (ternary) operator
+const drink = age >= 18 ? "wine" : "water";
+console.log(drink);
+
+//Without the conditional (ternary) operator
+let drink2;
+if (age >= 18) {
+    drink2 = "wine";
+} else drink2 = "water";
+
+// END THE CONDITIONAL (TERNARY) OPERATOR LECTURE
+////////////////////////////////////////////////////////////////////
