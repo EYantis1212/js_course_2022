@@ -102,3 +102,4 @@ if (birthYr <= 2000) {
 console.log(cent);
 
 // END TAKING DECISIONS: IF / ELSE STATEMENTS
+///////////////////////////////////////////////////////////
