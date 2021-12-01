@@ -199,11 +199,11 @@ GOOD LUCK �
 ///////////////////////////////////////////////////
 //START EQUALITY OPERATORS: == vs. ===
 
-const age = 18;
-if (age === 18) console.log("You just became an adult");
+// const age = 18;
+// if (age === 18) console.log("You just became an adult");
 // '===' is a strict equality comparison operator so it will not use coercion to change a value
 // '==' will use coercion and convert a type to check boolean value
 
 // END EQUALITY OPERATORS: == vs. ===
 ////////////////////////////////////////////////
-// START BOOLEAN LOGIC LECTURE
+// START LOGICAL OPERATORS
