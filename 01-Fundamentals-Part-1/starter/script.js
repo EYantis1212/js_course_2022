@@ -161,3 +161,7 @@ console.log("23" - "10" - 3); //Here the strings are coerced into numbers.
 let n = "1" + 1; //This ends up concatenating into the value 11.
 n = n - 1;
 console.log(n); //This is 10 instead of 1 because of the concatenation
+
+//END TYPE CONVERSION and COERCION LECTURE
+//////////////////////////////////////////////////////////
+//START TRUTHY and  FALSY VALUES LECTURE
