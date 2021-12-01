@@ -328,21 +328,36 @@ GOOD LUCK �
 //         console.log("Not a valid day!");
 // }
 
-if (day === "monday") {
-    console.log("Clean Kitchen");
-    console.log("Go Grocery Shopping");
-} else if (day === "tuesday") {
-    console.log("Clean Living Room");
-} else if (day === "wednesday" || day === "thursday") {
-    console.log("Clean Bathroom");
-} else if (day === "friday") {
-    console.log("Clean Bedroom");
-} else if (day === "saturday" || day === "sunday") {
-    console.log("Clean Yard");
-} else {
-    console.log("Not a valid day!");
-}
+// if (day === "monday") {
+//     console.log("Clean Kitchen");
+//     console.log("Go Grocery Shopping");
+// } else if (day === "tuesday") {
+//     console.log("Clean Living Room");
+// } else if (day === "wednesday" || day === "thursday") {
+//     console.log("Clean Bathroom");
+// } else if (day === "friday") {
+//     console.log("Clean Bedroom");
+// } else if (day === "saturday" || day === "sunday") {
+//     console.log("Clean Yard");
+// } else {
+//     console.log("Not a valid day!");
+// }
 
 //END THE SWITCH STATEMENT LECTURE
 ///////////////////////////////////////////////
 //START STATEMENTS AND EXPRESSIONS LECTURE
+
+//An expression is a line of code that produces a value like :
+//EXPRESSIONS
+3 + 4;
+1991;
+true & false;
+
+// If an expression is the individual words or components...then a statement is a complete sentence.  Pretty much any line of code that ends in a semicolon is a statement.  It may have components that are expressions and produce values...but the statement itself does not produce a value.
+//STATEMENTS
+if (23 > 14) {
+    const str = "23 is HUGE";
+}
+
+// END STATEMENTS AND EXPRESSIONS LECTURE
+///////////////////////////////////////////////////////
