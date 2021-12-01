@@ -141,3 +141,5 @@ if (markBMI > johnBMI) {
         `John's BMI of ${johnBMI} is higher than Mark's BMI of ${markBMI}!`
     );
 }
+// END CODING CHALLENGE #2
+///////////////////////////////////////////////////////////
