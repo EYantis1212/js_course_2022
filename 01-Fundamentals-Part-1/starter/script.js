@@ -234,3 +234,4 @@ if (hasDriverLicense && hasDriverLicense && !isTired) {
 
 // END LOGICAL OPERATORS
 //////////////////////////////////////////////
+// START CODING CHALLENGE #3
