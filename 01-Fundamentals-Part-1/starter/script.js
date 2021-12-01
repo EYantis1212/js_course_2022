@@ -207,3 +207,30 @@ GOOD LUCK �
 // END EQUALITY OPERATORS: == vs. ===
 ////////////////////////////////////////////////
 // START LOGICAL OPERATORS
+
+const hasDriverLicense = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriverLicense && hasGoodVision); // false
+console.log(hasDriverLicense || hasGoodVision); // true
+console.log(!hasDriverLicense); // false
+
+const shouldDrive = hasDriverLicense && hasGoodVision;
+
+if (shouldDrive) {
+    console.log("Sarah is able to drive!");
+} else {
+    console.log("Sarah might kill someone...no driving!");
+}
+
+const isTired = false; // C
+console.log(hasDriverLicense || hasGoodVision || isTired);
+
+if (hasDriverLicense && hasDriverLicense && !isTired) {
+    console.log("Sarah is able to drive!");
+} else {
+    console.log("Sarah might kill someone...no driving!");
+}
+
+// END LOGICAL OPERATORS
+//////////////////////////////////////////////
