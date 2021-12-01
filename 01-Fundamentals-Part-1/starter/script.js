@@ -301,3 +301,4 @@ if (averageScoreDolphins === averageScoreKoalas && averageScoreDolphins > 100) {
 
 // END CODING CHALLENGE #3
 //////////////////////////////////////////////
+// START THE SWITCH STATEMENT LECTURE
