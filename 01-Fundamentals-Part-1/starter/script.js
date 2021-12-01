@@ -144,3 +144,20 @@ if (markBMI > johnBMI) {
 // END CODING CHALLENGE #2
 ///////////////////////////////////////////////////////////
 //START TYPE CONVERSION and COERCION LECTURE
+
+//Type Conversion
+// const inputYear = "1991";
+// console.log(inputYear + 18); //This will not work as it concatenates the string with a number instead of adding
+
+const inputYear = "1991";
+console.log(Number(inputYear) + 18); //the Number function here converts the string to a number to allow the calculation but does not change the string to the converted number...it is still a string.
+console.log(String(23)); //You can also convert a number to a string
+
+//Type Coercion
+console.log(" I am " + 41 + "  years old"); //Here JavaScript coerced (automatically converted) the type of the number to string.
+
+console.log("23" - "10" - 3); //Here the strings are coerced into numbers.
+
+let n = "1" + 1; //This ends up concatenating into the value 11.
+n = n - 1;
+console.log(n); //This is 10 instead of 1 because of the concatenation
