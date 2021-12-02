@@ -412,3 +412,4 @@ console.log(
 
 // END CODING CHALLENGE #4
 //////////////////////////////////////////
+//END FILE - JAVASCRIPT FUNDAMENTALS PART 1 COMPLETE
