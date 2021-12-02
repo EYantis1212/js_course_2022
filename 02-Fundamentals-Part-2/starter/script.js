@@ -92,3 +92,36 @@
 // END FUNCTIONS CALLING OTHER FUNCTIONS
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // START REVIEWING FUNCTIONS
+
+// const calcAge = function (birthYear) {
+//     return 2021 - birthYear;
+// };
+
+// const yearsUntilRetirement = function (birthYear, firstName) {
+//     const age = calcAge(birthYear);
+//     const retirement = 65 - age;
+//     if (retirement > 0) {
+//         return `${firstName} has ${retirement} years until retirement!`;
+//     } else return `${firstName} has already retired!`;
+// };
+// console.log(yearsUntilRetirement(1980, "Eric"));
+// console.log(yearsUntilRetirement(1983, "Rebecca"));
+
+//REVIEW////////////////////////////////////////////////////
+
+//FUNCTION DECLARATION
+function calcAge(birthYear) {
+    return 2021 - birthYear;
+}
+
+//FUNCTION EXPRESSION
+const calcAge = function (birthYear) {
+    return 2021 - birthYear;
+};
+
+//ARROW FUNCTION
+const calcAge = (birthYear) => 2021 - birthYear;
+
+// END REVIEWING FUNCTIONS
+///////////////////////////////////////////////////////////////////////////////////////////////
+// START CODING CHALLENGE #1
