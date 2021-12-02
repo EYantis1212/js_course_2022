@@ -75,3 +75,20 @@
 // END ARROW FUNCTIONS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // START FUNCTIONS CALLING OTHER FUNCTIONS
+
+// function cutFruitPieces(fruit) {
+//     return fruit * 4;
+// }
+
+// function fruitProcessor(apples, oranges) {
+//     const applePieces = cutFruitPieces(apples);
+//     const orangePieces = cutFruitPieces(oranges);
+//     const juice = `Juice with ${applePieces} Apple Pieces and ${orangePieces} Orange Pieces`;
+//     return juice;
+// }
+// const appleOrangeJuice = fruitProcessor(2, 3);
+// console.log(appleOrangeJuice);
+
+// END FUNCTIONS CALLING OTHER FUNCTIONS
+///////////////////////////////////////////////////////////////////////////////////////////////
+// START REVIEWING FUNCTIONS
