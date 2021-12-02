@@ -373,10 +373,11 @@ const drink = age >= 18 ? "wine" : "water";
 console.log(drink);
 
 //Without the conditional (ternary) operator
-let drink2;
-if (age >= 18) {
-    drink2 = "wine";
-} else drink2 = "water";
+// let drink2;
+// if (age >= 18) {
+//     drink2 = "wine";
+// } else drink2 = "water";
 
 // END THE CONDITIONAL (TERNARY) OPERATOR LECTURE
 ////////////////////////////////////////////////////////////////////
+// START CODING CHALLENGE #4
