@@ -4,28 +4,51 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //START FUNCTIONS LECTURE
 
-function logger() {
-    console.log("My name is Eric");
-}
+// function logger() {
+//     console.log("My name is Eric");
+// }
 
-// calling / running / invoking the function
-logger();
+// // calling / running / invoking the function
+// logger();
 
-function fruitProcessor(apples, oranges) {
-    const juice = `Juice with ${apples} Apples and ${oranges} Oranges`;
-    return juice;
-}
+// function fruitProcessor(apples, oranges) {
+//     const juice = `Juice with ${apples} Apples and ${oranges} Oranges`;
+//     return juice;
+// }
 
-//AppleJuice!
+// //AppleJuice!
 
-const appleJuice = fruitProcessor(5, 0);
-console.log(appleJuice);
+// const appleJuice = fruitProcessor(5, 0);
+// console.log(appleJuice);
 
-//AppleOrange Juice
+// //AppleOrange Juice
 
-const appleOrangeJuice = fruitProcessor(2, 4);
-console.log(appleOrangeJuice);
+// const appleOrangeJuice = fruitProcessor(2, 4);
+// console.log(appleOrangeJuice);
 
 // END FUNCTIONS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //START FUNCTION DECLARATIONS vs EXPRESSIONS LECTURE
+
+//FUNCTION DECLARATION!!!!!!!!
+// function calcAge1(birthYear) {
+//     const age = 2037 - birthYear;
+//     return age;
+// }
+//Simplified
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+const age1 = calcAge1(1980);
+
+//FUNCTION EXPRESSION
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+};
+
+const age2 = calcAge2(1983);
+console.log(age1, age2);
+
+// END FUNCTION DECLARATIONS vs EXPRESSIONS LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////
+//START ARROW FUNCTIONS LECTURE
