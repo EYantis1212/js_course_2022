@@ -430,43 +430,94 @@ tall.
 GOOD LUCK �
 */
 
-const mark = {
-    fullName: "Mark Miller",
-    mass: 78,
-    height: 1.69,
-    calcBMI: function () {
-        this.BMI = this.mass / this.height ** 2;
-        return this.BMI;
-    },
-};
-mark.calcBMI();
-console.log(mark.BMI);
+// const mark = {
+//     fullName: "Mark Miller",
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function () {
+//         this.BMI = this.mass / this.height ** 2;
+//         return this.BMI;
+//     },
+// };
+// mark.calcBMI();
+// console.log(mark.BMI);
 
-const john = {
-    fullName: "John Smith",
-    mass: 92,
-    height: 1.95,
-    calcBMI: function () {
-        this.BMI = this.mass / this.height ** 2;
-        return this.BMI;
-    },
-};
-john.calcBMI();
-console.log(john.BMI);
+// const john = {
+//     fullName: "John Smith",
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function () {
+//         this.BMI = this.mass / this.height ** 2;
+//         return this.BMI;
+//     },
+// };
+// john.calcBMI();
+// console.log(john.BMI);
 
-if (mark.BMI > john.BMI) {
-    console.log(
-        `${mark.fullName}'s BMI of ${mark.BMI.toFixed(2)} is higher than ${
-            john.fullName
-        }'s BMI of ${john.BMI.toFixed(2)}!`
-    );
-} else
-    console.log(
-        `${john.fullName}'s BMI of ${john.BMI.toFixed(2)} is higher than ${
-            mark.fullName
-        }'s BMI of ${mark.BMI.toFixed(2)}!`
-    );
+// if (mark.BMI > john.BMI) {
+//     console.log(
+//         `${mark.fullName}'s BMI of ${mark.BMI.toFixed(2)} is higher than ${
+//             john.fullName
+//         }'s BMI of ${john.BMI.toFixed(2)}!`
+//     );
+// } else
+//     console.log(
+//         `${john.fullName}'s BMI of ${john.BMI.toFixed(2)} is higher than ${
+//             mark.fullName
+//         }'s BMI of ${mark.BMI.toFixed(2)}!`
+//     );
 
 //END CODING CHALLENGE #3
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // START ITERATION: FOR LOOPS LECTURE
+
+// For Loop keeps running while condition is true.
+// for (let rep = 1; rep <= 10; rep++) {
+//     console.log(`Lifting weights rep ${rep}`);
+// }
+
+// LOOPING ARRAYS
+const ericArray = [
+    "Eric",
+    "Yantis",
+    2021 - 1980,
+    "Developer",
+    ["Rebecca", "Joseph", "Edward", "Zachary"],
+];
+// const types = [];
+// for (let i = 0; i < ericArray.length; i++) {
+//     console.log(ericArray[i], typeof ericArray[i]);
+
+//     // Filling types array with type Method 1
+//     // types[i] = typeof ericArray[i];
+//     // Filling types array with type Method 2
+//     types.push(typeof ericArray[i]);
+// }
+// console.log(types);
+
+// const birthYears = [1980, 1983, 2004, 2007, 2009];
+// const ages = [];
+
+// for (let i = 0; i < birthYears.length; i++) {
+//     ages.push(2021 - birthYears[i]);
+// }
+// console.log(ages);
+
+// // Continue and Break Statements
+// console.log("------ONLY STRINGS ------");
+// const types = [];
+// for (let i = 0; i < ericArray.length; i++) {
+//     if (typeof ericArray[i] !== "string") continue; //exit and continue past all of this...  Exits current iterations...not whole loop
+//     console.log(ericArray[i], typeof ericArray[i]);
+// }
+
+console.log("------BREAK WITH NUMBER ------");
+const types = [];
+for (let i = 0; i < ericArray.length; i++) {
+    if (typeof ericArray[i] === "number") break; //exited the whole loop once ran into a number...
+    console.log(ericArray[i], typeof ericArray[i]);
+}
+
+//END ITERATION: FOR LOOPS LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// START LOOPING BACKWARDS & LOOPS IN LOOPS LECTURE
