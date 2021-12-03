@@ -228,31 +228,31 @@ GOOD LUCK
 // START BASIC ARRAY OPERATIONS (METHODS) LECTURE
 
 // ADDING ELEMENTS TO ARRAYS, (THESE FUNCTIONS RETURN NEW LENGTH OF ARRAY)
-const family = ["Rebecca", "Joseph", "Eddie", "Zachary"];
-family.push("Eric"); // PUSH ADDS TO END FO ARRAY
-console.log(family);
+// const family = ["Rebecca", "Joseph", "Eddie", "Zachary"];
+// family.push("Eric"); // PUSH ADDS TO END FO ARRAY
+// console.log(family);
 
-family.unshift("Eric"); // UNSHIFT ADDS TO START OF ARRAY
-console.log(family);
+// family.unshift("Eric"); // UNSHIFT ADDS TO START OF ARRAY
+// console.log(family);
 
-// REMOVING ELEMENTS FROM ARRAYS (THESE FUNCTIONS RETURN ARRAY ELEMENT REMOVED)
-family.pop(); // REMOVES LAST ELEMENT
-console.log(family);
+// // REMOVING ELEMENTS FROM ARRAYS (THESE FUNCTIONS RETURN ARRAY ELEMENT REMOVED)
+// family.pop(); // REMOVES LAST ELEMENT
+// console.log(family);
 
-family.shift(); // REMOVES FIRST ELEMENT
-console.log(family);
+// family.shift(); // REMOVES FIRST ELEMENT
+// console.log(family);
 
-// EXTRA METHODS
+// // EXTRA METHODS
 
-console.log(family.indexOf("Rebecca")); //indexOf Function returns the position of an Array Element
+// console.log(family.indexOf("Rebecca")); //indexOf Function returns the position of an Array Element
 
-console.log(family.includes("Rebecca")); //includes function or method tells you if something is present in the array.  Returns Boolean True or False/  This is strict comparison so '23' will not equal 23.
+// console.log(family.includes("Rebecca")); //includes function or method tells you if something is present in the array.  Returns Boolean True or False/  This is strict comparison so '23' will not equal 23.
 
-// Using includes to write conditionals is very common and useful.
+// // Using includes to write conditionals is very common and useful.
 
-if (family.includes("Eddie")) {
-    console.log("You have a family member named Edward");
-}
+// if (family.includes("Eddie")) {
+//     console.log("You have a family member named Edward");
+// }
 
 // END BASIC ARRAY OPERATIONS (METHODS) LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -280,3 +280,33 @@ values (so don't store the tip values in separate variables first, but right in 
 array) �
 GOOD LUCK �
 */
+//
+//FUNCTION DECLARATION
+// function calcTip(bill) {
+//     if (bill >= 50 && bill <= 300) {
+//         let tip = bill * 0.15;
+//         return tip;
+//     } else {
+//         let tip = bill * 0.2;
+//         return tip;
+//     }
+// }
+//FUNCTION TERNARY
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+
+//ARROW FUNCTION
+const calcTip = (bill) =>
+    bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(tips, bills);
+
+const totals = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
+console.log(totals);
+
+// END CODING CHALLENGE #2
+///////////////////////////////////////////////////////////////////////////////////////////////
+// START INTRO TO OBJECTS LECTURE
