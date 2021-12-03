@@ -198,31 +198,85 @@ GOOD LUCK
 // console.log(eric);
 
 // Exercise
-const calcAge = function (birthYear) {
-    return 2021 - birthYear;
-};
-console.log(calcAge(1980));
-const years = [1980, 1983, 2004, 2007, 2009];
+// const calcAge = function (birthYear) {
+//     return 2021 - birthYear;
+// };
+// console.log(calcAge(1980));
+// const years = [1980, 1983, 2004, 2007, 2009];
 
-// This doesn't work
-// console.log(calcAge[years]);
+// // This doesn't work
+// // console.log(calcAge[years]);
 
-const age1 = calcAge(years[0]);
-const age2 = calcAge(years[1]);
-const age3 = calcAge(years[years.length - 1]);
+// const age1 = calcAge(years[0]);
+// const age2 = calcAge(years[1]);
+// const age3 = calcAge(years[years.length - 1]);
 
-console.log(age1, age2, age3);
+// console.log(age1, age2, age3);
 
-const ages = [
-    calcAge(years[0]),
-    calcAge(years[1]),
-    calcAge(years[2]),
-    calcAge(years[3]),
-    calcAge(years[4]),
-];
+// const ages = [
+//     calcAge(years[0]),
+//     calcAge(years[1]),
+//     calcAge(years[2]),
+//     calcAge(years[3]),
+//     calcAge(years[4]),
+// ];
 
-console.log(ages);
+// console.log(ages);
 
 // END INTRODUCTION TO ARRAYS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // START BASIC ARRAY OPERATIONS (METHODS) LECTURE
+
+// ADDING ELEMENTS TO ARRAYS, (THESE FUNCTIONS RETURN NEW LENGTH OF ARRAY)
+const family = ["Rebecca", "Joseph", "Eddie", "Zachary"];
+family.push("Eric"); // PUSH ADDS TO END FO ARRAY
+console.log(family);
+
+family.unshift("Eric"); // UNSHIFT ADDS TO START OF ARRAY
+console.log(family);
+
+// REMOVING ELEMENTS FROM ARRAYS (THESE FUNCTIONS RETURN ARRAY ELEMENT REMOVED)
+family.pop(); // REMOVES LAST ELEMENT
+console.log(family);
+
+family.shift(); // REMOVES FIRST ELEMENT
+console.log(family);
+
+// EXTRA METHODS
+
+console.log(family.indexOf("Rebecca")); //indexOf Function returns the position of an Array Element
+
+console.log(family.includes("Rebecca")); //includes function or method tells you if something is present in the array.  Returns Boolean True or False/  This is strict comparison so '23' will not equal 23.
+
+// Using includes to write conditionals is very common and useful.
+
+if (family.includes("Eddie")) {
+    console.log("You have a family member named Edward");
+}
+
+// END BASIC ARRAY OPERATIONS (METHODS) LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////
+// START CODING CHALLENGE #2
+
+/*
+Coding Challenge #2
+Steven is still building his tip calculator, using the same rules as before: Tip 15% of
+the bill if the bill value is between 50 and 300, and if the value is different, the tip is
+20%.
+Your tasks:
+1. Write a function 'calcTip' that takes any bill value as an input and returns
+the corresponding tip, calculated based on the rules above (you can check out
+the code from first tip calculator challenge if you need to). Use the function
+type you like the most. Test the function using a bill value of 100
+2. And now let's use arrays! So create an array 'bills' containing the test data
+below
+3. Create an array 'tips' containing the tip value for each bill, calculated from
+the function you created before
+4. Bonus: Create an array 'total' containing the total values, so the bill + tip
+Test data: 125, 555 and 44
+Hint: Remember that an array needs a value in each position, and that value can
+actually be the returned value of a function! So you can just call a function as array
+values (so don't store the tip values in separate variables first, but right in the new
+array) �
+GOOD LUCK �
+*/
