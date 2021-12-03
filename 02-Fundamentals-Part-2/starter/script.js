@@ -297,16 +297,73 @@ GOOD LUCK �
 // };
 
 //ARROW FUNCTION
-const calcTip = (bill) =>
-    bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// const calcTip = (bill) =>
+//     bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 
-const bills = [125, 555, 44];
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
-console.log(tips, bills);
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// console.log(tips, bills);
 
-const totals = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
-console.log(totals);
+// const totals = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
+// console.log(totals);
 
 // END CODING CHALLENGE #2
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // START INTRO TO OBJECTS LECTURE
+
+// This object has 5 properties or 'keys'
+// const eric = {
+//     firstName: "Eric",
+//     lastName: "Yantis",
+//     age: 2021 - 1980,
+//     occupation: "Developer",
+//     family: ["Rebecca", "Joseph", "Edward", "Zachary"],
+// };
+// console.log(eric); // As you can see the properties are all ordered alphabetically, so the order does not matter at all in objects like it does arrays.
+
+// //  Here is how to retrieve data from an object using the dot (.) method
+// console.log(eric.age);
+// // and the bracket method which also allows you to use expressions
+// console.log(eric["occupation"]);
+
+// const nameKey = "Name";
+
+// console.log(eric["first" + nameKey]);
+// console.log(eric["last" + nameKey]);
+
+// const interestedIn = prompt(
+//     "What do you want to know about Eric? Choose between firstName, lastName, age, occupation, family"
+// );
+
+// // console.log(eric[interestedIn]);
+
+// if (eric[interestedIn]) {
+//     alert(eric[interestedIn]);
+// } else {
+//     alert(
+//         "Wrong request! Choose between firstName, lastName, age, occupation, family. "
+//     );
+// }
+
+// ADDING PROPERTIES TO OBJECTS
+const eric = {
+    firstName: "Eric",
+    lastName: "Yantis",
+    age: 2021 - 1980,
+    occupation: "Developer",
+    family: ["Rebecca", "Joseph", "Edward", "Zachary"],
+};
+eric.location = "Arizona";
+eric["email"] = "mememe@barley.com";
+console.log(eric.location, eric.email);
+
+// CHALLENGE
+// "Eric has 4 family members, and his spouse us called Rebecca"
+
+console.log(
+    `${eric.firstName} has ${eric.family.length} family members, and his spouse is named ${eric.family[0]}`
+);
+
+//END INTRO TO OBJECTS LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// START OBJECT METHODS LECTURE
