@@ -536,13 +536,36 @@ GOOD LUCK �
 //     console.log(ericArray[i]);
 // }
 
-for (let exercise = 1; exercise < 4; exercise++) {
-    console.log(`--------Starting Exercise ${exercise}`);
-    for (let rep = 1; rep < 6; rep++) {
-        console.log(`Lifting weights repitition ${rep}`);
-    }
-}
+// for (let exercise = 1; exercise < 4; exercise++) {
+//     console.log(`--------Starting Exercise ${exercise}`);
+//     for (let rep = 1; rep < 6; rep++) {
+//         console.log(`Lifting weights repetition ${rep}`);
+//     }
+// }
 
 //END LOOPING BACKWARDS & LOOPS IN LOOPS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // START THE WHILE LOOP LECTURE
+
+// for (let rep = 1; rep <= 10; rep++) {
+//     console.log(`Lifting weights repetition ${rep}`);
+// }
+
+//WHILE LOOPS DO NOT NEED COUNTERS MAKING THEM MORE VERSATILE THAN THE OTHER LOOPS
+// let rep = 1;
+// while (rep <= 10) {
+//     console.log(`Lifting weights repetition ${rep}`);
+//     rep++;
+// }
+
+// Dice Rolling to demonstrate a while loop without a counter
+let dice;
+while (dice !== 6) {
+    dice = 1 + Math.floor(Math.random() * 6);
+    console.log(`You rolled a ${dice}`);
+    if (dice === 6) console.log(`You rolled a ${dice}! The loop will end now.`);
+}
+
+//END THE WHILE LOOP LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// START CODING CHALLENGE #4
