@@ -153,22 +153,76 @@ Apply this to the team's average scores �
 GOOD LUCK
 */
 
-const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+// const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
-const avgDolphins = calcAverage(85, 54, 41);
-const avgKoalas = calcAverage(23, 34, 27);
-console.log(avgDolphins);
-console.log(avgKoalas);
+// const avgDolphins = calcAverage(85, 54, 41);
+// const avgKoalas = calcAverage(23, 34, 27);
+// console.log(avgDolphins);
+// console.log(avgKoalas);
 
-function checkWinner(avgDolphins, avgKoalas) {
-    if (avgDolphins >= 2 * avgKoalas) {
-        return `Dolphins win ${avgDolphins} to ${avgKoalas}!`;
-    } else if (avgKoalas >= 2 * avgDolphins) {
-        return `Koalas win ${avgKoalas} to ${avgDolphins}!`;
-    } else return "No one wins...";
-}
-console.log(checkWinner(avgDolphins, avgKoalas));
+// function checkWinner(avgDolphins, avgKoalas) {
+//     if (avgDolphins >= 2 * avgKoalas) {
+//         return `Dolphins win ${avgDolphins} to ${avgKoalas}!`;
+//     } else if (avgKoalas >= 2 * avgDolphins) {
+//         return `Koalas win ${avgKoalas} to ${avgDolphins}!`;
+//     } else return "No one wins...";
+// }
+// console.log(checkWinner(avgDolphins, avgKoalas));
 
 // END CODING CHALLENGE #1
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // START INTRODUCTION TO ARRAYS
+
+// const friends = ["Michael", "Steven", "Peter"];
+// console.log(friends);
+
+// const years = new Array(1991, 1984, 2008, 2020);
+
+// console.log(friends[0]);
+
+// // This returns the length of an array...Note: this is not zero based. So in this example the console will log 3.
+// console.log(friends.length);
+
+// // This would return the last element of the array
+// console.log(friends[friends.length - 1]);
+
+// // Here you see you can change an element of an array even if it was declared with const. This is because only primitives are immutable...and arrays are not primitives.
+// friends[2] = "Jay";
+// console.log(friends);
+
+// // This will not work on an array defined by const as you are trying to replace the entire array.
+// // friends = ["Bob, Alice"];
+// const family = ["Rebecca", "Joseph", "Eddie", "Zachary"];
+// const firstName = "Eric";
+// const eric = [firstName, "Yantis", 2021 - 1980, "Developer", family];
+// console.log(eric);
+
+// Exercise
+const calcAge = function (birthYear) {
+    return 2021 - birthYear;
+};
+console.log(calcAge(1980));
+const years = [1980, 1983, 2004, 2007, 2009];
+
+// This doesn't work
+// console.log(calcAge[years]);
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+
+console.log(age1, age2, age3);
+
+const ages = [
+    calcAge(years[0]),
+    calcAge(years[1]),
+    calcAge(years[2]),
+    calcAge(years[3]),
+    calcAge(years[4]),
+];
+
+console.log(ages);
+
+// END INTRODUCTION TO ARRAYS LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////
+// START BASIC ARRAY OPERATIONS (METHODS) LECTURE
