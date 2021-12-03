@@ -477,13 +477,13 @@ GOOD LUCK �
 // }
 
 // LOOPING ARRAYS
-const ericArray = [
-    "Eric",
-    "Yantis",
-    2021 - 1980,
-    "Developer",
-    ["Rebecca", "Joseph", "Edward", "Zachary"],
-];
+// const ericArray = [
+//     "Eric",
+//     "Yantis",
+//     2021 - 1980,
+//     "Developer",
+//     ["Rebecca", "Joseph", "Edward", "Zachary"],
+// ];
 // const types = [];
 // for (let i = 0; i < ericArray.length; i++) {
 //     console.log(ericArray[i], typeof ericArray[i]);
@@ -511,13 +511,38 @@ const ericArray = [
 //     console.log(ericArray[i], typeof ericArray[i]);
 // }
 
-console.log("------BREAK WITH NUMBER ------");
-const types = [];
-for (let i = 0; i < ericArray.length; i++) {
-    if (typeof ericArray[i] === "number") break; //exited the whole loop once ran into a number...
-    console.log(ericArray[i], typeof ericArray[i]);
-}
+// console.log("------BREAK WITH NUMBER ------");
+// const types = [];
+// for (let i = 0; i < ericArray.length; i++) {
+//     if (typeof ericArray[i] === "number") break; //exited the whole loop once ran into a number...
+//     console.log(ericArray[i], typeof ericArray[i]);
+// }
 
 //END ITERATION: FOR LOOPS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // START LOOPING BACKWARDS & LOOPS IN LOOPS LECTURE
+
+// const ericArray = [
+//     "Eric",
+//     "Yantis",
+//     2021 - 1980,
+//     "Developer",
+//     ["Rebecca", "Joseph", "Edward", "Zachary"],
+// ];
+
+// // Looping backwards
+
+// for (let i = ericArray.length - 1; i >= 0; i--) {
+//     console.log(ericArray[i]);
+// }
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`--------Starting Exercise ${exercise}`);
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Lifting weights repitition ${rep}`);
+    }
+}
+
+//END LOOPING BACKWARDS & LOOPS IN LOOPS LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// START THE WHILE LOOP LECTURE
