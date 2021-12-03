@@ -382,32 +382,91 @@ GOOD LUCK �
 // };
 // console.log(eric.calcAge(eric.birthYear));
 // This works...but now lets have the function pull the data automatically using 'THIS'
-let currentYear = new Date().getFullYear();
-const eric = {
-    firstName: "Eric",
-    lastName: "Yantis",
-    birthYear: 1980,
-    occupation: "Developer",
-    family: ["Rebecca", "Joseph", "Edward", "Zachary"],
-    hasDriversLicense: true,
-    // calcAge: function () {
-    //     console.log(this); //Here you can see 'this' just means the parent object the 'this' is inside.
-    //     return 2021 - this.birthYear;
-    calcAge: function () {
-        this.age = currentYear - this.birthYear;
-        return this.age;
-    },
-};
-eric.calcAge();
-console.log(eric.age);
+// let currentYear = new Date().getFullYear();
+// const eric = {
+//     firstName: "Eric",
+//     lastName: "Yantis",
+//     birthYear: 1980,
+//     occupation: "Developer",
+//     family: ["Rebecca", "Joseph", "Edward", "Zachary"],
+//     hasDriversLicense: true,
+//     // calcAge: function () {
+//     //     console.log(this); //Here you can see 'this' just means the parent object the 'this' is inside.
+//     //     return 2021 - this.birthYear;
+//     calcAge: function () {
+//         this.age = currentYear - this.birthYear;
+//         return this.age;
+//     },
+// };
+// eric.calcAge();
+// console.log(eric.age);
 
-// Challenge
-console.log(
-    `${eric.firstName} is a ${eric.age} year old ${eric.occupation} and he ${
-        eric.hasDriversLicense ? "has " : "doesn't have"
-    }a drivers license.`
-);
+// // Challenge
+// console.log(
+//     `${eric.firstName} is a ${eric.age} year old ${eric.occupation} and he ${
+//         eric.hasDriversLicense ? "has " : "doesn't have"
+//     }a drivers license.`
+// );
 
 //END OBJECT METHODS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // START CODING CHALLENGE #3
+
+/*
+Coding Challenge #3
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to
+implement the calculations! Remember: BMI = mass / height ** 2 = mass
+/ (height * height) (mass in kg and height in meter)
+Your tasks:
+1. For each of them, create an object with properties for their full name, mass, and
+height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same
+method on both objects). Store the BMI value to a property, and also return it
+from the method
+3. Log to the console who has the higher BMI, together with the full name and the
+respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m
+tall.
+GOOD LUCK �
+*/
+
+const mark = {
+    fullName: "Mark Miller",
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    },
+};
+mark.calcBMI();
+console.log(mark.BMI);
+
+const john = {
+    fullName: "John Smith",
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    },
+};
+john.calcBMI();
+console.log(john.BMI);
+
+if (mark.BMI > john.BMI) {
+    console.log(
+        `${mark.fullName}'s BMI of ${mark.BMI.toFixed(2)} is higher than ${
+            john.fullName
+        }'s BMI of ${john.BMI.toFixed(2)}!`
+    );
+} else
+    console.log(
+        `${john.fullName}'s BMI of ${john.BMI.toFixed(2)} is higher than ${
+            mark.fullName
+        }'s BMI of ${mark.BMI.toFixed(2)}!`
+    );
+
+//END CODING CHALLENGE #3
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// START ITERATION: FOR LOOPS LECTURE
