@@ -346,24 +346,68 @@ GOOD LUCK �
 // }
 
 // ADDING PROPERTIES TO OBJECTS
-const eric = {
-    firstName: "Eric",
-    lastName: "Yantis",
-    age: 2021 - 1980,
-    occupation: "Developer",
-    family: ["Rebecca", "Joseph", "Edward", "Zachary"],
-};
-eric.location = "Arizona";
-eric["email"] = "mememe@barley.com";
-console.log(eric.location, eric.email);
+// const eric = {
+//     firstName: "Eric",
+//     lastName: "Yantis",
+//     age: 2021 - 1980,
+//     occupation: "Developer",
+//     family: ["Rebecca", "Joseph", "Edward", "Zachary"],
+// };
+// eric.location = "Arizona";
+// eric["email"] = "mememe@barley.com";
+// console.log(eric.location, eric.email);
 
-// CHALLENGE
-// "Eric has 4 family members, and his spouse us called Rebecca"
+// // CHALLENGE
+// // "Eric has 4 family members, and his spouse us called Rebecca"
 
-console.log(
-    `${eric.firstName} has ${eric.family.length} family members, and his spouse is named ${eric.family[0]}`
-);
+// console.log(
+//     `${eric.firstName} has ${eric.family.length} family members, and his spouse is named ${eric.family[0]}`
+// );
 
 //END INTRO TO OBJECTS LECTURE
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // START OBJECT METHODS LECTURE
+
+// YOU CAN ADD FUNCTIONS INTO OBJECTS!!!!!!!  Just use an expression instead of a declaration.
+// const eric = {
+//     firstName: "Eric",
+//     lastName: "Yantis",
+//     birthYear: 1980,
+//     occupation: "Developer",
+//     family: ["Rebecca", "Joseph", "Edward", "Zachary"],
+//     hasDriversLicense: true,
+//     calcAge: function (birthYear) {
+//         return 2021 - birthYear;
+//     },
+// };
+// console.log(eric.calcAge(eric.birthYear));
+// This works...but now lets have the function pull the data automatically using 'THIS'
+let currentYear = new Date().getFullYear();
+const eric = {
+    firstName: "Eric",
+    lastName: "Yantis",
+    birthYear: 1980,
+    occupation: "Developer",
+    family: ["Rebecca", "Joseph", "Edward", "Zachary"],
+    hasDriversLicense: true,
+    // calcAge: function () {
+    //     console.log(this); //Here you can see 'this' just means the parent object the 'this' is inside.
+    //     return 2021 - this.birthYear;
+    calcAge: function () {
+        this.age = currentYear - this.birthYear;
+        return this.age;
+    },
+};
+eric.calcAge();
+console.log(eric.age);
+
+// Challenge
+console.log(
+    `${eric.firstName} is a ${eric.age} year old ${eric.occupation} and he ${
+        eric.hasDriversLicense ? "has " : "doesn't have"
+    }a drivers license.`
+);
+
+//END OBJECT METHODS LECTURE
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// START CODING CHALLENGE #3
