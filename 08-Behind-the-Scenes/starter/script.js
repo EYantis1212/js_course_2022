@@ -13,33 +13,37 @@
 // const firstName = 'Eric';
 // calcAge(1980);
 
-function calcAge(birthYear) {
-  const age = 2021 - birthYear;
+// function calcAge(birthYear) {
+//   const age = 2021 - birthYear;
 
-  function printAge() {
-    const output = `You are ${firstName}. You are ${age}, born in ${birthYear}`;
-    console.log(output);
+//   function printAge() {
+//     const output = `You are ${firstName}. You are ${age}, born in ${birthYear}`;
+//     console.log(output);
 
-    if (birthYear >= 1980 && birthYear <= 1996) {
-      // Here a second variable firstName is created in the block scope so it is seen first and is used instead of the global one.  These are two different variables and are both named the same thing.  This is just like being able to use the same parameters like [i] across different fucntions.  It is all scope.  To simply redifine a variable instead...use (firstName = 'Jamie') instead of creating it again with const or let.
-      const firstName = 'Jamie';
-      //Var millineal is function scoped and can be accessed by the parent function
-      var millenial = true;
-      const str = `Oh and you are a millenial, ${firstName} `;
-      console.log(str);
-    }
-    console.log(millenial);
-    function add(a, b) {
-      return (a = b);
-    }
-  }
+//     if (birthYear >= 1980 && birthYear <= 1996) {
+//       // Here a second variable firstName is created in the block scope so it is seen first and is used instead of the global one.  These are two different variables and are both named the same thing.  This is just like being able to use the same parameters like [i] across different fucntions.  It is all scope.  To simply redifine a variable instead...use (firstName = 'Jamie') instead of creating it again with const or let.
+//       const firstName = 'Jamie';
+//       //Var millineal is function scoped and can be accessed by the parent function
+//       var millenial = true;
+//       const str = `Oh and you are a millenial, ${firstName} `;
+//       console.log(str);
+//     }
+//     console.log(millenial);
+//     function add(a, b) {
+//       return (a = b);
+//     }
+//   }
 
-  printAge();
+//   printAge();
 
-  return age;
-}
-//If these vvvvv were reversed it would not work because the firstName variable would not be called before the function was called and needed it.
-const firstName = 'Eric';
-calcAge(1980);
+//   return age;
+// }
+// //If these vvvvv were reversed it would not work because the firstName variable would not be called before the function was called and needed it.
+// const firstName = 'Eric';
+// calcAge(1980);
 //You can not even call functions that are nested from outside like thisVV
 // printAge();
+
+//END SCOPING LECTURE
+///////////////////////////////////////////
+// START HOISTING AND TDZ LECTURE
