@@ -87,3 +87,98 @@
 // END HOISTING AND TDZ LECTURE
 //////////////////////////////////////
 // START THIS KEYWORD LECTURE
+
+// console.log(this);
+
+// const calcAge = function (birthYear) {
+//   console.log(2021 - birthYear);
+//   console.log(this);
+// };
+// calcAge(1980);
+
+// const calcAgeArrow = birthYear => {
+//   console.log(2021 - birthYear);
+//   console.log(this);
+// };
+// calcAgeArrow(1980);
+
+// const eric = {
+//   year: 1980,
+//   calcAge: function () {
+//     console.log(2021 - this.year);
+//     console.log(this);
+//   },
+// };
+// eric.calcAge();
+// // this is pointing to what called the function...not the function itself
+
+// const rebecca = {
+//   year: 1983,
+// };
+// // this just put the calcAge function into rebecca
+// rebecca.calcAge = eric.calcAge;
+// rebecca.calcAge();
+
+// Regular Functions vs Arrow Functions
+
+// const eric = {
+//   firstName: 'Eric',
+//   year: 1980,
+//   calcAge: function () {
+//     console.log(2021 - this.year);
+//     console.log(this);
+//   },
+//   greet: () => console.log(`Hey ${this.firstName}`),
+// };
+// eric.greet();
+// In this example the arrow function does not get a 'This' keyword so it looks to the global scope and 'firstName' does not exist there so it returns undefined.
+
+// BIG TAKEAWAY - NEVER USE AN ARROW FUNCTION AS A METHOD (A object property that holds a function)
+
+// PITFALL #2
+
+const eric = {
+  firstName: 'Eric',
+  year: 1980,
+  calcAge: function () {
+    console.log(2021 - this.year);
+    // Solution 1
+    // console.log(this);
+    // const self = this; // Here we create a variable that will take the place of this in deeper functions.
+    // const isMillenial = function () {
+    //   console.log(self.year >= 1980 && self.year <= 1996);
+    // 	// console.log(this.year >= 1980 && this.year <= 1996);
+    // };
+
+    //Solution 2
+    // Here because an arrow function does not get its own 'this' keyword it looks to its parent object and this works.
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1980 && this.year <= 1996);
+      // console.log(this.year >= 1980 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+  greet: () => {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+eric.greet();
+eric.calcAge();
+
+//// argument keyword does not work in arrow function but does in other
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+//// Arrow
+const addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 8);
+
+// THIS KEYWORD LECTURE
+//////////////////////////////////////
+// START PRIMITIVES VS OBJECTS (REFERENCE TYPES)LECTURE
