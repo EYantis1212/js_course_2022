@@ -14,6 +14,10 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -29,3 +33,44 @@ const restaurant = {
     },
   },
 };
+
+// ARRAY DESTRUCTURING
+
+// const arr = [2, 3, 4];
+
+// const [x, y, z] = arr; // This is not an array...this is destructuring the array above and assigning all the values to variable...  now x = 2, y = 3, and z = 4
+// // The original Array is not affected.
+// console.log(x, y, z);
+
+// // Example 2 - You do not have to grab all the elements
+
+// const [first, second] = restaurant.categories;
+// console.log(first, second);
+// // If you needed to cheery pick you can [fisrt, , third, , fifth]
+
+//switching variables
+// let [main, secondary] = restaurant.categories;
+// console.log(main, secondary); // Italian Pizzaria
+
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary); // Pizzaria Italian
+
+//receive two return values from a function.
+const [starter, mainCourse] = restaurant.order(3, 1);
+console.log(starter, mainCourse);
+
+//How to pull from nested arrays
+// NESETD DESTRUCTURING
+const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested; // returns 2, [5, 6]
+
+const [i, , [j, k]] = nested;
+console.log(i, j, k); // Returns 2, 5, and 6.
+
+// DEFAULT VALUES
+// const [p, q, r] = [8, 9]; //trying to pull more elements than the array has
+// console.log(p, q, r); // = 8, 9, and undefined
+
+const [p = 1, q = 1, r = 1] = [8, 9]; //Now with default values
+console.log(p, q, r); // = 8, 9, and 1
+//this is useful if you are getting data from an API and you do not know what is coming...set a default value so you do not get undefined everywhere...you will know which weren't there.
