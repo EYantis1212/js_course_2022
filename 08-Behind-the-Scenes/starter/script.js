@@ -47,3 +47,43 @@
 //END SCOPING LECTURE
 ///////////////////////////////////////////
 // START HOISTING AND TDZ LECTURE
+
+// Variables
+
+// console.log(me); // hoisted and works but is undefined because var
+// console.log(year); //Not initialized so it is in TDZ
+// console.log(job); //Not initialized so it is in TDZ
+
+// var me = 'Eric';
+// let job = 'Developer';
+// const year = 1980;
+
+// Functions
+// console.log(addDecl(2, 3)); //Expression not decalred so hoisted and works
+// console.log(addExpr(2, 3)); //Declared so in TDZ and not initialized
+// console.log(addArrow(2, 3)); //Declared so in TDZ and not initialized
+// ////Expression
+// function addDecl(a, b) {
+//   return a + b;
+// }
+
+// //// Declaration
+// const addExpr = function (a, b) {
+//   return a + b;
+// };
+
+// //// Arrow
+// const addArrow = (a, b) => a + b;
+
+// Hoisting pitfall Be Aware...
+// if (!numProducts) deleteShoppingCart(); //This deleted the cart even though there were products in the cart...this is because both were hoisted but var = undefined when it got hoisted.  Undefined = falsy...so function runs.
+
+// var numProducts = 10;
+
+// function deleteShoppingCart() {
+//   console.log('All Products Deleted!');
+// }
+
+// END HOISTING AND TDZ LECTURE
+//////////////////////////////////////
+// START THIS KEYWORD LECTURE
