@@ -115,6 +115,11 @@ const restaurant = {
       `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`
+    );
+  },
 };
 restaurant.orderDelivery({
   //Calling the function and passing in an object!
@@ -156,11 +161,62 @@ restaurant.orderDelivery({
 //Nested Objects
 //In the Resturant Object there is an openingHours object, inside of those are objects for days...
 
-const {
-  fri: { open: o, close: c },
-} = restaurant.openingHours;
-console.log(o, c);
+// const {
+//   fri: { open: o, close: c },
+// } = restaurant.openingHours;
+// console.log(o, c);
 
 // END OBJECT DESTRUCTURING LECTURE
 //////////////////////////////////////
 // START THE SPREAD OPERATOR LECTURE
+
+// Old way
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+//New way with spread operator
+const newArr = [1, 2, ...arr]; //Takes all the array elements
+console.log(newArr);
+
+console.log(...newArr); // This logs individual elements of the array instead of the array itself.
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+//Note spread operator is only used where you would normally write values seperated by commas... you can not use it by itself to create new variables
+
+// copy array
+// const mainMenuCopy = [...restaurant.mainMenu]; //shallow copy
+
+// // Merge arrays
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// // Iterables are Arrays, Strings, Maps, Sets, not Objects
+// const str = 'Jamie';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundedIn: 1988, ...restaurant, founder: 'Jamie' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma ';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+// END THE SPREAD OPERATOR
+//////////////////////////////////////
+// START REST PATTERN AND PARAMETERS
