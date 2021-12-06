@@ -137,48 +137,103 @@
 
 // PITFALL #2
 
-const eric = {
-  firstName: 'Eric',
-  year: 1980,
-  calcAge: function () {
-    console.log(2021 - this.year);
-    // Solution 1
-    // console.log(this);
-    // const self = this; // Here we create a variable that will take the place of this in deeper functions.
-    // const isMillenial = function () {
-    //   console.log(self.year >= 1980 && self.year <= 1996);
-    // 	// console.log(this.year >= 1980 && this.year <= 1996);
-    // };
+// const eric = {
+//   firstName: 'Eric',
+//   year: 1980,
+//   calcAge: function () {
+//     console.log(2021 - this.year);
+//     // Solution 1
+//     // console.log(this);
+//     // const self = this; // Here we create a variable that will take the place of this in deeper functions.
+//     // const isMillenial = function () {
+//     //   console.log(self.year >= 1980 && self.year <= 1996);
+//     // 	// console.log(this.year >= 1980 && this.year <= 1996);
+//     // };
 
-    //Solution 2
-    // Here because an arrow function does not get its own 'this' keyword it looks to its parent object and this works.
-    const isMillenial = () => {
-      console.log(this);
-      console.log(this.year >= 1980 && this.year <= 1996);
-      // console.log(this.year >= 1980 && this.year <= 1996);
-    };
-    isMillenial();
-  },
-  greet: () => {
-    console.log(`Hey ${this.firstName}`);
-  },
-};
-eric.greet();
-eric.calcAge();
+//     //Solution 2
+//     // Here because an arrow function does not get its own 'this' keyword it looks to its parent object and this works.
+//     const isMillenial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1980 && this.year <= 1996);
+//       // console.log(this.year >= 1980 && this.year <= 1996);
+//     };
+//     isMillenial();
+//   },
+//   greet: () => {
+//     console.log(`Hey ${this.firstName}`);
+//   },
+// };
+// eric.greet();
+// eric.calcAge();
 
-//// argument keyword does not work in arrow function but does in other
-const addExpr = function (a, b) {
-  console.log(arguments);
-  return a + b;
-};
-addExpr(2, 5);
-//// Arrow
-const addArrow = (a, b) => {
-  console.log(arguments);
-  return a + b;
-};
-addArrow(2, 5, 8);
+// //// argument keyword does not work in arrow function but does in other
+// const addExpr = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addExpr(2, 5);
+// //// Arrow
+// const addArrow = (a, b) => {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addArrow(2, 5, 8);
 
 // THIS KEYWORD LECTURE
 //////////////////////////////////////
 // START PRIMITIVES VS OBJECTS (REFERENCE TYPES)LECTURE
+
+// let age = 30;
+// let oldAge = age;
+// age = 31;
+// console.log(age); // age is 31
+// console.log(oldAge); // oldAge is 30 because it was captured before the change.
+
+// const me = {
+//   name: 'Eric',
+//   age: 41,
+// };
+// const friend = me;
+// friend.age = 33;
+
+// console.log(me);
+// console.log(friend);
+
+// let lastName = 'Burns';
+// let oldLastName = lastName;
+// lastName = 'Yantis';
+// console.log(oldLastName);
+// console.log(lastName);
+
+const eric = {
+  firstName: 'Eric',
+  lastName: 'Burns',
+  age: 41,
+};
+
+const newEric = eric; // This is just copying the reference again
+newEric.lastName = 'Yantis'; // So this in not a new object...just a variable that is referencing one.
+console.log(eric.lastName); // This is now Yantis
+console.log(newEric.lastName); // So is this...because they are pointing to the same refence in memory
+
+// Copying Objects
+const eric2 = {
+  firstName: 'Eric',
+  lastName: 'Burns',
+  age: 41,
+  family: ['Rebecca', 'Joseph', 'Edison'],
+};
+
+const ericCopy = Object.assign({}, eric2); // <--- This just assigned a new object with the same values as the old...
+// THis is a shallow copy and not a deep copy...it only copies the properties of the first level...not nested objects. So both objects will still be referencing the same deeper objects.
+ericCopy.lastName = 'Yantis';
+console.log(eric2.lastName); // Now this correctly stays 'Burns'
+console.log(ericCopy.lastName); // Now this corectly shows the change to 'Yantis'
+
+ericCopy.family.push('Zachary'); // This now has added the new item to the object within the object which is still referenced by two parent objects.
+console.log(eric.family);
+console.log(ericCopy.family);
+
+// DEEP CLONING IS USUALLY DONE WITH AN EXTERNAL LIBRARY LIKE LODASH
+
+// END SECTION 8
