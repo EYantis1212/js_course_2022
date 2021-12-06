@@ -7,32 +7,32 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+// const restaurant = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
+//   order: function (starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-};
+//   openingHours: {
+//     thu: {
+//       open: 12,
+//       close: 22,
+//     },
+//     fri: {
+//       open: 11,
+//       close: 23,
+//     },
+//     sat: {
+//       open: 0, // Open 24 hours
+//       close: 24,
+//     },
+//   },
+// };
 
 // ARRAY DESTRUCTURING
 
@@ -55,22 +55,112 @@ const restaurant = {
 // [main, secondary] = [secondary, main];
 // console.log(main, secondary); // Pizzaria Italian
 
-//receive two return values from a function.
-const [starter, mainCourse] = restaurant.order(3, 1);
-console.log(starter, mainCourse);
+// //receive two return values from a function.
+// const [starter, mainCourse] = restaurant.order(3, 1);
+// console.log(starter, mainCourse);
 
-//How to pull from nested arrays
-// NESETD DESTRUCTURING
-const nested = [2, 4, [5, 6]];
-// const [i, , j] = nested; // returns 2, [5, 6]
+// //How to pull from nested arrays
+// // NESETD DESTRUCTURING
+// const nested = [2, 4, [5, 6]];
+// // const [i, , j] = nested; // returns 2, [5, 6]
 
-const [i, , [j, k]] = nested;
-console.log(i, j, k); // Returns 2, 5, and 6.
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k); // Returns 2, 5, and 6.
 
-// DEFAULT VALUES
-// const [p, q, r] = [8, 9]; //trying to pull more elements than the array has
-// console.log(p, q, r); // = 8, 9, and undefined
+// // DEFAULT VALUES
+// // const [p, q, r] = [8, 9]; //trying to pull more elements than the array has
+// // console.log(p, q, r); // = 8, 9, and undefined
 
-const [p = 1, q = 1, r = 1] = [8, 9]; //Now with default values
-console.log(p, q, r); // = 8, 9, and 1
+// const [p = 1, q = 1, r = 1] = [8, 9]; //Now with default values
+// console.log(p, q, r); // = 8, 9, and 1
 //this is useful if you are getting data from an API and you do not know what is coming...set a default value so you do not get undefined everywhere...you will know which weren't there.
+
+// END ARRAY DESTRUCTURING
+//////////////////////////////////////
+// START OBJECT DESTRUCTURING LECTURE
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  order: function (starterIndex, mainIndex) {
+    // Restructuring inside the argument of the function
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+};
+restaurant.orderDelivery({
+  //Calling the function and passing in an object!
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+//////////////////////////////////////
+// START OBJECT DESTRUCTURING LECTURE
+
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// // But what if we want to use different variable names?
+// const { n = name, o = openingHours, c = categories} = restaurant;
+// console.log(n, o, c);
+// Or...
+// const {
+//   name: resturantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(resturantName, hours, tags);
+
+// Default values
+
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// //Mutating Variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+
+// ({ a, b } = obj);
+// console.log(a, b); // a dn b variable become 23, 7
+
+//Nested Objects
+//In the Resturant Object there is an openingHours object, inside of those are objects for days...
+
+const {
+  fri: { open: o, close: c },
+} = restaurant.openingHours;
+console.log(o, c);
+
+// END OBJECT DESTRUCTURING LECTURE
+//////////////////////////////////////
+// START THE SPREAD OPERATOR LECTURE
