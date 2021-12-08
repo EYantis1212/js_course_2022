@@ -227,7 +227,7 @@ restaurant.orderDelivery({
 
 // DESTRUCTURING
 
-//SPREAD, beacuse on RIGHT side of =
+//SPREAD, because on RIGHT side of =
 //   const arr = [1,2, ...[3,4]];
 // // REST, because on LEFT side of operator =
 // //It is calles REST because it will take the rest of the elements and put them into an array
@@ -240,7 +240,7 @@ restaurant.orderDelivery({
 //   ...restaurant.mainMenu,
 //   ...restaurant.starterMenu,
 // ];
-// console.log(pizza, risotto, otherFood); //Pizza, Risoto, then the rest
+// console.log(pizza, risotto, otherFood); //Pizza, Risotto, then the rest
 
 // // OBJECTS - Difference is rest of elements will be collected into a new object instead of an Array
 // const { sat, ...weekdays } = restaurant.openingHours;
@@ -302,20 +302,56 @@ restaurant.orderDelivery({
 // START THE NULLISH COALESCING OPERATOR (??)
 
 //This below didn't work because even though numGuests has a value and exists...it is 0 which is falsy so it gets skipped.
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
 //This fixes it and gives the value even if falsy!
 // ?? only cares if it is Nullish (null or undefined) and returns first Truthy
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
-const a = 0;
-console.log(a ?? 'Eric'); // = 0
-const b = null;
-console.log(b ?? 'Eric'); // = Eric
+// const a = 0;
+// console.log(a ?? 'Eric'); // = 0
+// const b = null;
+// console.log(b ?? 'Eric'); // = Eric
 
 // END THE NULLISH COALESCING OPERATOR (??)
 ////////////////////////////////////////////////
 // START LOGICAL ASSIGNMENT OPERATORS
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'la Piazza',
+  owner: 'Giovanni Rossi',
+};
+// Got these restaurants from an API and now want to apply something to all of them.
+// This just set numGuests to both of them...
+
+// Now we can write in a more concise way
+//This check for value and if not gives it the 10
+//However if it had the value of 0 it is falsy so defaults to 10
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10; // = 0 YAY!
+rest2.numGuests ??= 10; // = 10
+
+console.log(rest1); // = 20
+console.log(rest2); // = 10
+
+// &&= only assigns the value to a variable if it is truthy
+rest1.owner &&= 'ANONYMOUS'; // So this didn't have anything assigned
+console.log(rest1);
+
+rest2.owner &&= 'ANONYMOUS'; // This changed owner to ANONYMOUS
+console.log(rest2);
+
+// END LOGICAL ASSIGNMENT OPERATORS
+////////////////////////////////////////////////
+// START CODING CHALLENGE #1
