@@ -236,67 +236,82 @@ restaurant.orderDelivery({
 
 // Both sides
 //Note, if you skip an item like below, REST will not grab it...rest has to be last thing.
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood); //Pizza, Risoto, then the rest
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood); //Pizza, Risoto, then the rest
 
-// OBJECTS - Difference is rest of elements will be collected into a new object instead of an Array
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(sat, weekdays);
+// // OBJECTS - Difference is rest of elements will be collected into a new object instead of an Array
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(sat, weekdays);
 
-// FUNCTIONS
-// REST ARGUMENTS
-//This grabs all array elements and packs them together
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-  console.log(sum);
-};
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
-const k = [24, 6, 8];
-const x = [23, 5, 7];
-add(x, k); //This spreads the numbers and runs the function with them
+// // FUNCTIONS
+// // REST ARGUMENTS
+// //This grabs all array elements and packs them together
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+// const k = [24, 6, 8];
+// const x = [23, 5, 7];
+// add(x, k); //This spreads the numbers and runs the function with them
 
-// METHOD ( See order pizza method line: 123)
-restaurant.orderPizza('mushrooms', 'bacon', 'sausage');
+// // METHOD ( See order pizza method line: 123)
+// restaurant.orderPizza('mushrooms', 'bacon', 'sausage');
 
-// END REST PATTERN and PARAMETERS
-////////////////////////////////////////////////
-// START SHORT CIRCUITING (&& and ||)
+// // END REST PATTERN and PARAMETERS
+// ////////////////////////////////////////////////
+// // START SHORT CIRCUITING (&& and ||)
 
-console.log('----------OR-----------');
-// LOGICAL OPERATORS can use ANY data type, return ANY data type, and short-circuit evaluation
-console.log(3 || ['Eric']); // 3
-// (||) SHORT CIRCUITING means that it returns the first Truthy value and stops
-console.log('' || 'Eric'); // Eric
-console.log(true || 0); //true
-console.log(undefined || null); //null
+// console.log('----------OR-----------');
+// // LOGICAL OPERATORS can use ANY data type, return ANY data type, and short-circuit evaluation
+// console.log(3 || ['Eric']); // 3
+// // (||) SHORT CIRCUITING means that it returns the first Truthy value and stops
+// console.log('' || 'Eric'); // Eric
+// console.log(true || 0); //true
+// console.log(undefined || null); //null
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null); // = Hello
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null); // = Hello
 
-//Here you can check to see if something like numGuests exists..(it does not) and else it returns a value
-const guests1 = restaurant.numGuests ? restaurant.numbers : 10; //= 10
-//This is the quicker way using (||) short circuiting
-const guests2 = restaurant.numGuests || 10;
+// //Here you can check to see if something like numGuests exists..(it does not) and else it returns a value
+// const guests1 = restaurant.numGuests ? restaurant.numbers : 10; //= 10
+// //This is the quicker way using (||) short circuiting
+// const guests2 = restaurant.numGuests || 10;
 
-console.log('----------AND-----------');
+// console.log('----------AND-----------');
 
-console.log(0 && 'Eric'); // = 0   Short circuits when first Falsy value
-console.log(7 && 'Eric'); // = 'Eric' because it returns the last value if both Truthy
+// console.log(0 && 'Eric'); // = 0   Short circuits when first Falsy value
+// console.log(7 && 'Eric'); // = 'Eric' because it returns the last value if both Truthy
 
-console.log('Hello' && 23 && null && 'Eric'); // = null...the first Falsy value
+// console.log('Hello' && 23 && null && 'Eric'); // = null...the first Falsy value
 
-// PRACTICE EXAMPLE
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach'); //This checks with 'if' if the method exists..and if it dows executes it
-}
-// This is the same as above...it checks if truthy and if it is it evaluates the second part calling it.
-restaurant.orderPizza && restaurant.orderPizza('Onion', 'Mushrooms');
+// // PRACTICE EXAMPLE
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach'); //This checks with 'if' if the method exists..and if it dows executes it
+// }
+// // This is the same as above...it checks if truthy and if it is it evaluates the second part calling it.
+// restaurant.orderPizza && restaurant.orderPizza('Onion', 'Mushrooms');
 
 // START SHORT CIRCUITING (&& and ||)
 ////////////////////////////////////////////////
 // START THE NULLISH COALESCING OPERATOR (??)
+
+//This below didn't work because even though numGuests has a value and exists...it is 0 which is falsy so it gets skipped.
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+//This fixes it and gives the value even if falsy!
+// ?? only cares if it is Nullish (null or undefined) and returns first Truthy
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+const a = 0;
+console.log(a ?? 'Eric'); // = 0
+const b = null;
+console.log(b ?? 'Eric'); // = Eric
