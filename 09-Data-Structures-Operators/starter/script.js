@@ -266,3 +266,4 @@ restaurant.orderPizza('mushrooms', 'bacon', 'sausage');
 
 // END REST PATTERN and PARAMETERS
 ////////////////////////////////////////////////
+// START SHORT CIRCUITING (&& and ||)
