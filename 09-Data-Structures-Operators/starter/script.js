@@ -296,3 +296,7 @@ if (restaurant.orderPizza) {
 }
 // This is the same as above...it checks if truthy and if it is it evaluates the second part calling it.
 restaurant.orderPizza && restaurant.orderPizza('Onion', 'Mushrooms');
+
+// START SHORT CIRCUITING (&& and ||)
+////////////////////////////////////////////////
+// START THE NULLISH COALESCING OPERATOR (??)
