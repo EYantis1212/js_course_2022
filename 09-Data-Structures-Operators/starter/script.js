@@ -297,7 +297,7 @@ restaurant.orderDelivery({
 // // This is the same as above...it checks if truthy and if it is it evaluates the second part calling it.
 // restaurant.orderPizza && restaurant.orderPizza('Onion', 'Mushrooms');
 
-// START SHORT CIRCUITING (&& and ||)
+// END SHORT CIRCUITING (&& and ||)
 ////////////////////////////////////////////////
 // START THE NULLISH COALESCING OPERATOR (??)
 
@@ -315,3 +315,7 @@ const a = 0;
 console.log(a ?? 'Eric'); // = 0
 const b = null;
 console.log(b ?? 'Eric'); // = Eric
+
+// END THE NULLISH COALESCING OPERATOR (??)
+////////////////////////////////////////////////
+// START LOGICAL ASSIGNMENT OPERATORS
