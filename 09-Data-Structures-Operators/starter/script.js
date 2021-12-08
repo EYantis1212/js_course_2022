@@ -267,3 +267,32 @@ restaurant.orderPizza('mushrooms', 'bacon', 'sausage');
 // END REST PATTERN and PARAMETERS
 ////////////////////////////////////////////////
 // START SHORT CIRCUITING (&& and ||)
+
+console.log('----------OR-----------');
+// LOGICAL OPERATORS can use ANY data type, return ANY data type, and short-circuit evaluation
+console.log(3 || ['Eric']); // 3
+// (||) SHORT CIRCUITING means that it returns the first Truthy value and stops
+console.log('' || 'Eric'); // Eric
+console.log(true || 0); //true
+console.log(undefined || null); //null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // = Hello
+
+//Here you can check to see if something like numGuests exists..(it does not) and else it returns a value
+const guests1 = restaurant.numGuests ? restaurant.numbers : 10; //= 10
+//This is the quicker way using (||) short circuiting
+const guests2 = restaurant.numGuests || 10;
+
+console.log('----------AND-----------');
+
+console.log(0 && 'Eric'); // = 0   Short circuits when first Falsy value
+console.log(7 && 'Eric'); // = 'Eric' because it returns the last value if both Truthy
+
+console.log('Hello' && 23 && null && 'Eric'); // = null...the first Falsy value
+
+// PRACTICE EXAMPLE
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach'); //This checks with 'if' if the method exists..and if it dows executes it
+}
+// This is the same as above...it checks if truthy and if it is it evaluates the second part calling it.
+restaurant.orderPizza && restaurant.orderPizza('Onion', 'Mushrooms');
