@@ -574,3 +574,28 @@ for (const [i, el] of menu.entries()) {
 }
 
 // Enhanced Object Literals
+
+// Computing
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHrs = {
+    [weekdays[0]]: {
+        open: 12,
+        close: 23,
+    },
+    [weekdays[1 + 2]]: {
+        // Thu
+        open: 11,
+        close: 22,
+    },
+    [`${weekdays[5]}urday`]: {
+        //Saturday
+        open: 10,
+        close: 24,
+    },
+};
+console.log(openingHrs); // Mon: open:12 close:23
+
+// END ENHANCED OBJECT LITERALS
+////////////////////////////////////////////////
+// START OPTIONAL CHAINING (?)
