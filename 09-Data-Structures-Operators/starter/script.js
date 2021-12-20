@@ -4,7 +4,7 @@
 /////////////////////////////////////////////////////////
 // Data needed for a later exercise
 const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 // const restaurant = {
@@ -45,7 +45,7 @@ const flights =
 // // Example 2 - You do not have to grab all the elements
 
 // const [first, second] = restaurant.categories;
-// console.log(first, second);
+// console.log(firs"#80fff4");
 // // If you needed to cheery pick you can [fisrt, , third, , fifth]
 
 //switching variables
@@ -80,57 +80,57 @@ const flights =
 // START OBJECT DESTRUCTURING LECTURE
 
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
-    // Restructuring inside the argument of the function
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
+    order: function (starterIndex, mainIndex) {
+        // Restructuring inside the argument of the function
+        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+    },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22,
+        },
+        fri: {
+            open: 11,
+            close: 23,
+        },
+        sat: {
+            open: 0, // Open 24 hours
+            close: 24,
+        },
     },
-    fri: {
-      open: 11,
-      close: 23,
+    orderDelivery: function ({
+        starterIndex = 1,
+        mainIndex = 0,
+        time = '20:00',
+        address,
+    }) {
+        console.log(
+            `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+        );
     },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log(
+            `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`
+        );
     },
-  },
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
-    console.log(
-      `Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
-  },
-  orderPasta: function (ing1, ing2, ing3) {
-    console.log(
-      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`
-    );
-  },
-  orderPizza: function (mainIng, ...otherIng) {
-    console.log(mainIng);
-    console.log(otherIng);
-  },
+    orderPizza: function (mainIng, ...otherIng) {
+        console.log(mainIng);
+        console.log(otherIng);
+    },
 };
 restaurant.orderDelivery({
-  //Calling the function and passing in an object!
-  time: '22:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
+    //Calling the function and passing in an object!
+    time: '22:30',
+    address: 'Via del Sole, 21',
+    mainIndex: 2,
+    starterIndex: 2,
 });
 //////////////////////////////////////
 // START OBJECT DESTRUCTURING LECTURE
@@ -385,44 +385,44 @@ Then, call the function again with players from game.scored
 GOOD LUCK �
 */
 // const game = {
-//   team1: 'Bayern Munich',
-//   team2: 'Borrussia Dortmund',
-//   players: [
-//     [
-//       'Neuer',
-//       'Pavard',
-//       'Martinez',
-//       'Alaba',
-//       'Davies',
-//       'Kimmich',
-//       'Goretzka',
-//       'Coman',
-//       'Muller',
-//       'Gnarby',
-//       'Lewandowski',
+//     team1: 'Bayern Munich',
+//     team2: 'Borrussia Dortmund',
+//     players: [
+//         [
+//             'Neuer',
+//             'Pavard',
+//             'Martinez',
+//             'Alaba',
+//             'Davies',
+//             'Kimmich',
+//             'Goretzka',
+//             'Coman',
+//             'Muller',
+//             'Gnarby',
+//             'Lewandowski',
+//         ],
+//         [
+//             'Burki',
+//             'Schulz',
+//             'Hummels',
+//             'Akanji',
+//             'Hakimi',
+//             'Weigl',
+//             'Witsel',
+//             'Hazard',
+//             'Brandt',
+//             'Sancho',
+//             'Gotze',
+//         ],
 //     ],
-//     [
-//       'Burki',
-//       'Schulz',
-//       'Hummels',
-//       'Akanji',
-//       'Hakimi',
-//       'Weigl',
-//       'Witsel',
-//       'Hazard',
-//       'Brandt',
-//       'Sancho',
-//       'Gotze',
-//     ],
-//   ],
-//   score: '4:0',
-//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-//   date: 'Nov 9th, 2037',
-//   odds: {
-//     team1: 1.33,
-//     x: 3.25,
-//     team2: 6.5,
-//   },
+//     score: '4:0',
+//     scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//     date: 'Nov 9th, 2037',
+//     odds: {
+//         team1: 1.33,
+//         x: 3.25,
+//         team2: 6.5,
+//     },
 // };
 
 // // 1.
@@ -451,3 +451,126 @@ GOOD LUCK �
 
 // v
 ////////////////////////////////////////////////
+// Challenge \
+//Approach 1
+// function isValidPassword(password, username) {
+//     if (password.length >= 8) {
+//         if (password.indexOf(' ') == -1) {
+//             if (password.indexOf(username) == -1) {
+//                 console.log('Is Valid Password');
+//             } else {
+//                 console.log('Password must not equal username');
+//             }
+//         } else {
+//             console.log('Password must not contain spaces');
+//         }
+//     } else {
+//         console.log('Password must contain at least 8 characters');
+//     }
+// }
+// // Approach #2
+// function isValidPassword(password, username) {
+//     if (password.length < 8) {
+//         console.log('Password must contain at least 8 characters');
+//     }
+//     if (password.indexOf(' ') !== -1) {
+//         console.log('Password must not contain spaces');
+//     }
+//     if (password.indexOf(username) !== -1) {
+//         console.log('Password must not contain username');
+//     }
+//     console.log('Password is Valid');
+// }
+// function isValidPassword(password, username) {
+//     const tooShort = password.length < 8;
+//     const hasSpace = password.indexOf(' ') !== -1;
+//     const hasUser = password.indexOf(username) !== -1;
+//     if (tooShort || hasSpace || hasUser) {
+//         console.log('Password is invalid');
+//     } else console.log('Valid Password');
+// }
+
+// // isValidPassword('89Fjj1nms', 'dogLuvr');
+// // isValidPassword('dogLuvr123!', 'dogLuvr');
+
+// // END CODING CHALLENGE #1
+// //Extra coding challenge #2
+
+// // approach 1
+// // function avg(arr) {
+// //     let sum = 0;
+// //     let average = 0;
+// //     for (let i = 0; i < arr.length; i++) {
+// //         sum += arr[i];
+// //         average = sum / arr.length;
+// //     }
+// //     console.log(sum);
+// //     console.log(average);
+// // }
+
+//Approach 2
+// function avg(arr) {
+//     let sum = 0;
+//     for (let num of arr) {
+//         sum += num;
+//     }
+//     let average = sum / arr.length;
+//     return average;
+// }
+
+// avg([0, 50]);
+// avg([75, 76, 80, 95, 100]);
+
+// function makeBetweenFunc(x, y) {
+//     return function (num) {
+//         return num >= x && num <= y;
+//     };
+// }
+// const isRetired = makeBetweenFunc(62, 120);
+
+// console.log(isRetired(65));
+
+// function myFunc(name) {
+//     return 'Hello ' + name;
+// }
+// const wee = myFunc('Jamie');
+// console.log(wee);
+
+//Fizz Buzz Challenge
+
+// 1. Count up to current entered Number
+// 2. When a number is divisible by 3 return fizz
+// 3. When a number is divisible by 5 return buzz
+// 4. When a number is divisible by both return fizzbuzz
+// 5. Otherwise return the number
+
+// function fizzBuzz(num) {
+//     for (let i = 1; i < num; i++) {
+//         if (i % 3 == 0 && i % 5 == 0) {
+//             console.log('FizzBuzz');
+//         } else if (i % 3 == 0) {
+//             console.log('Fizz');
+//         } else if (i % 5 == 0) {
+//             console.log('Buzz');
+//         } else console.log(i);
+//     }
+// }
+// fizzBuzz(31);
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+// Here item is a variable you can name anything...the for loop iterates over the array
+// It then pulls the elements of the arrays into the variable
+
+// If you want the index and the element you have to do this.
+for (const item of menu.entries()) {
+    console.log(item);
+}
+
+// With Destructuring
+for (const [i, el] of menu.entries()) {
+    console.log(i, el);
+}
+
+// Enhanced Object Literals
