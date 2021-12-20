@@ -1,4 +1,12 @@
 'use strict';
+
+/*
+* Important
+! Warning
+? Question
+TODO: To do
+*/
+
 ////////////////////////////////////////////////////////
 // START SECTION 9 - DATA STRUCTURES and MODERN OPERATORS
 /////////////////////////////////////////////////////////
@@ -67,9 +75,9 @@ const flights =
 // const [i, , [j, k]] = nested;
 // console.log(i, j, k); // Returns 2, 5, and 6.
 
-// // DEFAULT VALUES
-// // const [p, q, r] = [8, 9]; //trying to pull more elements than the array has
-// // console.log(p, q, r); // = 8, 9, and undefined
+// DEFAULT VALUES
+// const [p, q, r] = [8, 9]; //trying to pull more elements than the array has
+// console.log(p, q, r); // = 8, 9, and undefined
 
 // const [p = 1, q = 1, r = 1] = [8, 9]; //Now with default values
 // console.log(p, q, r); // = 8, 9, and 1
@@ -599,3 +607,54 @@ console.log(openingHrs); // Mon: open:12 close:23
 // END ENHANCED OBJECT LITERALS
 ////////////////////////////////////////////////
 // START OPTIONAL CHAINING (?)
+
+// If you get info from an API or something you might not know what is in an object
+//Here we are trying to see the hours IF the restaurant is open on monday
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// ENTER OPTIONAL CHAINING
+
+// Here...if Monday exists then get the opening hours.
+console.log(restaurant.openingHours.mon?.open); //undefined but no error
+//Now checking if opening hours even exists first
+console.log(restaurant.openingHours?.mon?.open);
+
+// More real world example
+const wkdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+//This code iterates through the restaurant objects opening hours and checks returns the opening hours only if open on the day.
+// This returns undefined for any day that the restaurant is not open
+// for (const day of wkdays) {
+//     console.log(day);
+//     const open = restaurant.openingHours[day]?.open;
+//     console.log(open);
+// }
+// If we want to get rid of the undefined we can set a default value like:
+// We use a nullish coalescing operator (??) so that Saturdays opening hour of '0' returns even though it is falsy
+for (const day of wkdays) {
+    console.log(day);
+    const open = restaurant.openingHours[day]?.open ?? 'closed';
+    console.log(open);
+}
+
+// Methods
+//Here we can check if a method exists before calling it
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist'); // Focaccia, Pasta
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist'); // Method does not exist
+
+// Arrays
+let currentYear = new Date().getFullYear();
+console.log(currentYear);
+const family = [
+    { name: 'Eric', age: currentYear - 1980 },
+    { name: 'Rebecca', age: currentYear - 1983 },
+    { name: 'Joseph', age: currentYear - 2004 },
+    { name: 'Edward', age: currentYear - 2007 },
+    { name: 'Zachary', age: currentYear - 2009 },
+];
+console.log(family);
+console.log(family[0]?.name) ?? 'Array Empty'; //Eric
+console.log(family[0]?.age) ?? 'Array Empty'; //41
+
+// END OPTIONAL CHAINING (?)
+////////////////////////////////////////////////
+// START LOOPING OBJECTS: OBJECT KEYS, VALUES, and ENTRIES
