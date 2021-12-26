@@ -813,3 +813,43 @@ Get the team names directly from the game object, don't hardcode them
 // END CODING CHALLENGE 2
 ////////////////////////////////////////////////
 // START SETS
+
+// const ordersSet = new Set([
+//     'Pasta',
+//     'Pizza',
+//     'Pizza',
+//     'Risotto',
+//     'Pasta',
+//     'Pizza',
+// ]);
+// console.log(ordersSet); // a Set of 3
+
+// console.log(new Set('Eric'));
+// console.log(ordersSet.size); // instead of length  = 3\
+// console.log(ordersSet.has('Pizza')); // Case sensitive returns true
+// console.log(ordersSet.has('Bread')); // returns false
+
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread'); // Only adds one
+// ordersSet.delete('Risotto');
+// // ordersSet.clear(); // erases all data
+// console.log(ordersSet);
+
+// // No point to Retrieve values (there are NO indexes because all values are unique)
+
+// for (const order of ordersSet) console.log(order);
+
+// // USE CASE FOR SETS
+
+// // Can be used to remove duplicates in arrays
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+// const uniqueStaff = [...new Set(staff)];
+// console.log(uniqueStaff);
+// console.log(new Set(staff).size);
+
+// console.log(new Set('EricYantis').size); //size = 9 because 'i' is duplicated
+
+// END SETS
+////////////////////////////////////////////////
+// START MAPS
