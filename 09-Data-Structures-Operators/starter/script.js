@@ -769,3 +769,47 @@ GOOD LUCK 😀
 1. Loop over the game.scored array and print each player name to the console,
 along with the goal number (Example: "Goal 1: Lewandowski")
 */
+// const entries = Object.entries(game.scored);
+// console.log(entries);
+// for (const [i, person] of entries) {
+//     console.log(person);
+//     console.log(`Goal ${Number(i) + 1}: ${person}`);
+// }
+
+/*
+2. Use a loop to calculate the average odd and log it to the console (We already
+    studied how to calculate averages, you can go check if you don't remember)
+    */
+// const oddsValue = Object.values(game.odds);
+// console.log(oddsValue);
+
+// let average = 0;
+// for (let odds of oddsValue) {
+//     console.log(odds);
+//     average += odds;
+//     average /= oddsValue.length;
+//     console.log(average);
+// }
+
+/*
+3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+Odd of victory Bayern Munich: 1.33
+Odd of draw: 3.25
+Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them
+*/
+
+// const entries = Object.entries(game.odds);
+// for (let [team, odds] of entries) {
+//     const teamStr =
+//         team === 'x'
+//             ? 'draw'
+//             :
+//             console.log(
+//                   `Odds for victory of ${game[team]}? draw is: ${odds}`
+//               );
+// }
+
+// END CODING CHALLENGE 2
+////////////////////////////////////////////////
+// START SETS
