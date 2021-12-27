@@ -11,8 +11,6 @@ TODO: To do
 // START SECTION 9 - DATA STRUCTURES and MODERN OPERATORS
 /////////////////////////////////////////////////////////
 // Data needed for a later exercise
-const flights =
-    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 // const restaurant = {
@@ -1145,13 +1143,11 @@ Some_Variable
 calculate_AGE
 delayed_departure
 Should produce this output (5 separate console.log outputs):
-underscoreCase
-firstName ✅
-✅✅
-someVariable
-calculateAge ✅✅✅
-✅✅✅✅
-delayedDeparture ✅✅✅✅✅
+underscoreCase      ✅
+firstName          ✅✅
+someVariable       ✅✅✅
+calculateAge      ✅✅✅✅
+delayedDeparture  ✅✅✅✅✅
 Hints:
 § Remember which character defines a new line in the textarea 😉
 § The solution only needs to work for a variable made out of 2 words, like a_b
@@ -1163,5 +1159,46 @@ you're stuck. Then pause and continue!
 Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+// let textArea = document.querySelector('textarea');
+// const button = document.querySelector('button');
+// let text = '';
+// button.addEventListener('click', function () {
+//     text = textArea.value.toLowerCase();
+//     textArea.value = '';
+//     convertText(text);
+// });
+// function convertText(text) {
+//     let output = '';
+//     const splitArr = text.split('\n');
+//     for (const [i, item] of splitArr.entries()) {
+//         const [first, second] = item.split('_');
+//         output = `${first}${second.replace(
+//             second[0],
+//             second[0].toUpperCase()
+//         )}`;
+//         console.log(output.padEnd(20) + '✅'.repeat(i + 1));
+
+//         console.log(output);
+//     }
+// }
+//         namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+
+const flights =
+    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const separateFlights = flights.split('+');
+console.log(separateFlights);
+
+for (const flight of separateFlights) {
+    const [status, depart, arrive, time] = flight.split(';');
+    console.log(
+        `${status.replaceAll('_', ' ').trimStart()} from ${depart
+            .slice(0, 3)
+            .toUpperCase()} to ${arrive
+            .slice(0, 3)
+            .toUpperCase()} (${time.replace(':', 'h')})`
+    );
+}
+
+// END SECTION 9
