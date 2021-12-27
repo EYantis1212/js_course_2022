@@ -48,3 +48,24 @@ console.log(flight, eric); // Flight is the same but name was changed
 //Passing in a variable will make a copy of the primitive or data reference.
 
 //! Functions Accepting Callback Functions
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+console.log(upperFirstWord('eric yantis'));
+
+//Higher order Function
+const transformer = function (str, fn) {
+  console.log(`Original String: ${str}`);
+  console.log(`Transformed String: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+transformer('javascript is the Best', upperFirstWord);
+transformer('javascript is the Best', oneWord);
+
+//! Functions returning Functions
