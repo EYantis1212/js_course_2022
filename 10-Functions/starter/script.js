@@ -69,3 +69,23 @@ transformer('javascript is the Best', upperFirstWord);
 transformer('javascript is the Best', oneWord);
 
 //! Functions returning Functions
+
+const greet = function (greeting) {
+  // Basically a function factory
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+
+console.log(greeterHey);
+greeterHey('Eric');
+
+greet('Hello')('Eric');
+
+const greeting = greeting => name => console.log(`${greeting} ${name}`);
+
+greeting('Hola')('Eric');
+
+//! Call and Apply Methods
