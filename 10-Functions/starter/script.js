@@ -89,3 +89,44 @@ const greeting = greeting => name => console.log(`${greeting} ${name}`);
 greeting('Hola')('Eric');
 
 //! Call and Apply Methods
+
+const yantisAir = {
+  airline: 'Yantis Air',
+  iataCode: 'YA',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({
+      flight: `${this.iataCode}${flightNum}`,
+      name,
+    });
+  },
+};
+console.log(yantisAir.bookings);
+yantisAir.book(435, 'Eric Yantis');
+yantisAir.book(446, 'Rebecca Yantis');
+
+const RebeccaAir = {
+  airline: 'Rebecca Air',
+  iataCode: 'RY',
+  bookings: [],
+};
+
+// Instead of copying the function code from airline to airline...store it
+
+const book = yantisAir.book;
+
+//call changes the 'this' keyword to point to first argument
+book.call(RebeccaAir, 23, 'Alana Harrison');
+
+//apply does the same but passes an array as the arguments
+//This is not used anymore because there is a better method using call and the spread operator
+const flightData = [625, 'Mary Bollard'];
+book.apply(RebeccaAir, flightData);
+
+// Here is the same thing but with spread operator
+book.call(RebeccaAir, ...flightData);
+
+//! The Bind Method
