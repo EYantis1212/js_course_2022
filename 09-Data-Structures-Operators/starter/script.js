@@ -981,3 +981,187 @@ GOOD LUCK 😀
 // END CODING CHALLENGE 3
 ////////////////////////////////////////////////
 // START WORKING WITH STRINGS
+
+// const airline = 'Yantis Air';
+// const plane = 'A320';
+
+// // Get Characters
+// console.log(plane[0]); // A
+// console.log('B737'[0]); // B
+
+// // Get Length
+// console.log(airline.length);
+
+// // Methods
+// console.log(airline.indexOf('i')); // 3
+// console.log(airline.lastIndexOf('i')); // 8
+// console.log(airline.indexOf('Air')); // 7
+
+// console.log(airline.slice(4)); // is Air
+// console.log(airline.slice(7, 10)); // Air
+
+// console.log(airline.slice(0, airline.indexOf(' '))); // Yantis
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Air
+
+// console.log(airline.slice(-3)); // Air (negatives go from end)
+// console.log(airline.slice(1, -1)); // antis Air
+// console.log(airline.slice(3, -4)); // tis
+
+// const checkMiddleSeat = function (seat) {
+//     // B and E are middle seats
+//     const s = seat.slice(-1);
+//     s === 'B' || s === 'E'
+//         ? console.log(`${seat} is a middle seat`)
+//         : console.log(`${seat} is not a middle seat`);
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+// console.log(airline.toLowerCase()); // yantis air\
+// console.log(airline.toUpperCase()); // YANTIS AIR
+
+// // Fix capitalization in passenger name
+// const passenger = 'eRiC';
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//     passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect); // Eric
+
+// // comparing emails
+
+// const email = 'hello@yantis.com';
+// const loginEmail = '  Hello@Yantis.CoM  \n';
+
+// // const lowerEmail = loginEmail.toLowerCase();
+// // const trimmedEmail = lowerEmail.trim();
+// // console.log(trimmedEmail); // hello@yantis.com
+
+// // Or all in one line
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail); // hello@yantis.com
+
+// console.log(email === normalizedEmail); // true
+
+// // Replacing parts of strings
+// const priceGB = '288,97£';
+// const priceUS = priceGB.replace('£', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement =
+//     'All passengers come to boarding door 23. Boarding door 23!';
+
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// console.log(announcement.replaceAll(/door/g, 'gate'));
+
+// // Boolean Methods
+// const plane2 = 'Airbus A320neo';
+// console.log(plane2.includes('A320')); // true
+// console.log(plane2.startsWith('Air')); // true
+
+// if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+//     console.log('Part of the new Airbus Family');
+// }
+
+// // Practice Exercise
+// const checkBaggage = function (items) {
+//     const baggage = items.toLowerCase();
+//     if (baggage.includes('knife') || baggage.includes('gun')) {
+//         console.log('Stay the Fuck off the plane');
+//     } else console.log('Welcome Aboard');
+// };
+
+// checkBaggage('I have a laptop, some Food, and a pocket Knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Got some snacks and a gun for protection');
+
+// // SPLIT METHOD (VERY POWERFUL)
+// console.log('a+very+nice+string'.split('+')); // ['a', 'very', 'nice', 'string']
+// console.log('Eric Yantis'.split(' ')); // [Eric, Yantis]
+
+// // With Destructuring
+// const [firstName, lastName] = 'Eric Yantis'.split(' ');
+// console.log(firstName, lastName); // Eric Yantis
+// console.log(typeof firstName); // string
+
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName); // Mr. Eric YANTIS
+
+// const capitalizeName = function (name) {
+//     const names = name.split(' ');
+//     const namesUpper = [];
+//     console.log(names);
+//     for (const n of names) {
+//         // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//         namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//     }
+//     console.log(namesUpper.join(' '));
+// };
+
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('eric yantis');
+
+// // Padding a string
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+')); // +++++++++++Go to gate 23!
+// console.log(message.padStart(25, '+').padEnd(35, '+')); // +++++++++++Go to gate 23!++++++++++
+
+// // Real world example
+
+// const maskCreditCard = function (num) {
+//     const str = num + '';
+//     const last4 = str.slice(-4);
+//     return console.log(last4.padStart(str.length, '*'));
+// };
+// maskCreditCard(4356343578975434);
+// maskCreditCard('4356343578923456');
+// maskCreditCard('43563435789754343675');
+
+// // repeat method
+// const weatherTicker = 'Bad weather... All Departures Delayed... ';
+// console.log(weatherTicker.repeat(3));
+
+// const planesInLine = function (n) {
+//     console.log(`There are ${n} planes in line ${'✈️ '.repeat(n)}`);
+// };
+// planesInLine(4);
+
+// END WORKING WITH STRINGS
+////////////////////////////////////////////////
+// START CODING CHALLENGE 4
+/*
+
+Coding Challenge #4
+Write a program that receives a list of variable names written in underscore_case
+and convert them to camelCase.
+The input will come from a textarea inserted into the DOM (see code below to
+insert the elements), and conversion will happen when the button is pressed.
+Test data (pasted to textarea, including spaces):
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+Should produce this output (5 separate console.log outputs):
+underscoreCase
+firstName ✅
+✅✅
+someVariable
+calculateAge ✅✅✅
+✅✅✅✅
+delayedDeparture ✅✅✅✅✅
+Hints:
+§ Remember which character defines a new line in the textarea 😉
+§ The solution only needs to work for a variable made out of 2 words, like a_b
+§ Start without worrying about the ✅. Tackle that only after you have the variable
+name conversion working 😉
+§
+This challenge is difficult on purpose, so start watching the solution in case
+you're stuck. Then pause and continue!
+Afterwards, test with your own test data!
+GOOD LUCK 😀
+*/
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
