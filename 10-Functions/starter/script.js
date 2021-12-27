@@ -130,3 +130,46 @@ book.apply(RebeccaAir, flightData);
 book.call(RebeccaAir, ...flightData);
 
 //! The Bind Method
+// This does not call the function...it creates a new function with the keyword 'this' bound
+
+const bookRY = book.bind(RebeccaAir);
+bookRY(123, 'Patricia Colette');
+
+// You can also bind arguments into the function
+//This is known as Partial application...partially applying the arguments
+const bookRY235 = book.bind(RebeccaAir, 235);
+bookRY235('Sam Christ');
+
+// With Event Listeners
+yantisAir.planes = 300;
+yantisAir.buyPlane = function () {
+  this.planes++;
+  console.log(this);
+  console.log(this.planes);
+};
+document
+  .querySelector('.buy')
+  .addEventListener('click', yantisAir.buyPlane.bind(yantisAir));
+
+// Partial Application
+
+const addTax = (rate, value) => value + value * rate;
+
+const addAZTax = addTax.bind(null, 0.097);
+
+console.log(addAZTax(100));
+
+//Now with a function factory
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addTucsonTax = addTaxRate(0.087);
+const addLATax = addTaxRate(0.095);
+
+console.log(addTucsonTax(123));
+console.log(addLATax(900));
+
+//! Coding Challenge 1
