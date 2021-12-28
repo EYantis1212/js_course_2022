@@ -262,3 +262,68 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 (() => console.log('This ALSO will never run again.'))();
 
 //! Closures
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+const booker = secureBooking();
+
+booker(); // 1 passengers
+booker(); // 2 passengers
+booker(); // 3 passengers
+
+/*
+Closure - The above should not be possible
+because it should not still have access to the passengerCount variable
+outside the function scope.
+
+It works because capturing the returned function in a variable captured the state
+it was in when created...along with everything that was in it's scope at the time.
+
+! Closure has priority over the scope chain!
+It is called a closure because it closes over all the variables to create the scope of the function
+*/
+console.dir(booker); // This shows all the scopes the function has access to...including closures
+
+// More Examples
+
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+g();
+f(); // 46
+// Reassigned and no longer has access to closure for b
+h();
+f();
+// This proves it closes over the variables in the birthfunction even if it
+//was assigned to a variable already created elsewhere
+
+// Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+  setTimeout(function () {
+    console.log(`We are now Boarding all ${n} passengers!`);
+    console.log(
+      `There are 3 boarding groups, each with ${perGroup} passengers`
+    );
+  }, wait * 1000);
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+boardPassengers(180, 3);
+
+// Here a closure was created to allow the setTimeout function to access the boardpassengers variables
