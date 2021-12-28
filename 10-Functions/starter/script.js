@@ -254,3 +254,11 @@ document
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 
 //! Immediately Invoked Function Expression (IIFE)
+
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This ALSO will never run again.'))();
+
+//! Closures
