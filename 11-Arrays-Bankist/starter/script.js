@@ -76,3 +76,36 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 
 //! START SECTION 11
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE0  returns new array
+console.log(arr.slice(2)); // new array with c, d, e
+console.log(arr.slice(-1)); // Returns last element
+console.log(arr.slice(2, 4)); //Returns element 2 and 3 but not 4
+console.log(arr.slice()); // creates a shallow copy
+console.log([...arr]); // Same as above...creates a shallow copy
+
+//SPLICE    This changes the original array
+console.log(arr.splice(2)); // returns c,d,e and leaves a, b in original array\
+
+console.log(arr.splice(-1)); // Deletes last element
+console.log(arr.splice(1, 2)); //Deletes 2 elements starting at element 1
+
+// REVERSE
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+
+console.log(arr2.reverse()); // Mutated original array to be reversed
+
+// CONCAT;
+
+const letters = arr.concat(arr2);
+console.log(letters); // both joined together ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+console.log([...arr, ...arr2]); // This does the same thing
+
+// JOIN
+console.log(letters.join('-')); // Creates string of array with set divider
+
+//!  The New At Method
