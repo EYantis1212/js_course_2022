@@ -347,4 +347,17 @@ const allMovementsEasier = accounts
   .reduce((acc, val) => acc + val, 0);
 console.log(allMovementsEasier);
 
-//! Sorting Arrays
+//! Sorting Arrays (See here and Application)
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// Strings
+const owners = ['Eric', 'Rebecca', 'Joseph', 'Edison', 'Zachary'];
+console.log(owners.sort()); // This mutates it
+
+// Numbers
+console.log(movements.sort());
+
+console.log(movements.sort((a, b) => (a > b ? 1 : -1)));
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements.sort((a, b) => a - b));
+
+//! More Ways of Creating and Filling Arrays
