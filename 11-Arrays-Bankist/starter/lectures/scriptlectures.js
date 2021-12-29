@@ -241,42 +241,42 @@ const totalDepositsUSD = movements
 console.log(totalDepositsUSD);
 
 //! Coding Challenge 3 (See refactored function at line 225)
-// const account1 = {
-//   owner: 'Eric P Yantis',
-//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-//   interestRate: 1.2, // %
-//   pin: 1111,
-// };
+const account1 = {
+  owner: 'Eric P Yantis',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
 
-// const account2 = {
-//   owner: 'Rebecca L Yantis',
-//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-//   interestRate: 1.5,
-//   pin: 2222,
-// };
+const account2 = {
+  owner: 'Rebecca L Yantis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
 
-// const account3 = {
-//   owner: 'Joseph A Yantis',
-//   movements: [200, -200, 340, -300, -20, 50, 400, -460],
-//   interestRate: 0.7,
-//   pin: 3333,
-// };
+const account3 = {
+  owner: 'Joseph A Yantis',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
 
-// const account4 = {
-//   owner: 'Edison S Yantis',
-//   movements: [430, 1000, 700, 50, 90],
-//   interestRate: 1,
-//   pin: 4444,
-// };
+const account4 = {
+  owner: 'Edison S Yantis',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
 
-// const account5 = {
-//   owner: 'Zachary A Yantis',
-//   movements: [430, 1000, 700, -50, 90],
-//   interestRate: 0.6,
-//   pin: 5555,
-// };
+const account5 = {
+  owner: 'Zachary A Yantis',
+  movements: [430, 1000, 700, -50, 90],
+  interestRate: 0.6,
+  pin: 5555,
+};
 
-// const accounts = [account1, account2, account3, account4, account5];
+const accounts = [account1, account2, account3, account4, account5];
 
 // //! The Find Method
 
@@ -290,4 +290,30 @@ console.log(totalDepositsUSD);
 //! Implementing Login (See Application)
 //! Implementing Transfers (See Application)
 //! The FindIndex Method (See Application)
-//! Some and Every
+
+//! Some and Every (See here and Application)
+
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// EQUALITY
+console.log(movements.includes(-130)); //true
+// CONDITION
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 1500); // True
+console.log(anyDeposits);
+
+// EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// SEPARATE CALLBACK
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+
+const reducer = (acc, val) => acc + val;
+console.log(movements.reduce(reducer));
+
+//! Flat and Flatmap

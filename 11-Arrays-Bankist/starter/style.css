@@ -209,7 +209,7 @@ nav {
 /* OPERATIONS */
 .operation {
   border-radius: 1rem;
-  padding: 3rem 4rem;
+  padding: 3rem 2rem;
   color: #333;
 }
 
@@ -226,8 +226,14 @@ nav {
 }
 
 h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+h3 {
+  font-size: 1.4em;
+  margin: 0.5em 0;
   font-weight: 600;
   color: #333;
 }
