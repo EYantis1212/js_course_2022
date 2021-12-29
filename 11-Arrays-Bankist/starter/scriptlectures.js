@@ -223,15 +223,11 @@ Test data:
 GOOD LUCK 😀
 */
 const calcAverageHumanAge = function (dogAges) {
-  const calcAges = dogAges.map(age => (age <= 2 ? age * 2 : age * 4 + 16));
-  const adultAges = calcAges.filter(age => age >= 18);
-  const avgAge = adultAges.reduce(
-    (acc, age, i, arr) => acc + age / arr.length,
-    0
-  );
-  console.log(calcAges);
-  console.log(adultAges);
-  return avgAge;
+  const avgAges = dogAges
+    .map(age => (age <= 2 ? age * 2 : age * 4 + 16))
+    .filter(age => age >= 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+  return avgAges;
 };
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 // eurToUSD = 1.13;
@@ -244,4 +240,6 @@ const totalDepositsUSD = movements
 
 console.log(totalDepositsUSD);
 
-//! Coding Challenge 3
+//! Coding Challenge 3 (See refactored function at line 225)
+
+//! The Find Method
