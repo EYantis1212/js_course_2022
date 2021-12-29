@@ -241,50 +241,51 @@ const totalDepositsUSD = movements
 console.log(totalDepositsUSD);
 
 //! Coding Challenge 3 (See refactored function at line 225)
-const account1 = {
-  owner: 'Eric P Yantis',
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2, // %
-  pin: 1111,
-};
+// const account1 = {
+//   owner: 'Eric P Yantis',
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//   interestRate: 1.2, // %
+//   pin: 1111,
+// };
 
-const account2 = {
-  owner: 'Rebecca L Yantis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-  interestRate: 1.5,
-  pin: 2222,
-};
+// const account2 = {
+//   owner: 'Rebecca L Yantis',
+//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//   interestRate: 1.5,
+//   pin: 2222,
+// };
 
-const account3 = {
-  owner: 'Joseph A Yantis',
-  movements: [200, -200, 340, -300, -20, 50, 400, -460],
-  interestRate: 0.7,
-  pin: 3333,
-};
+// const account3 = {
+//   owner: 'Joseph A Yantis',
+//   movements: [200, -200, 340, -300, -20, 50, 400, -460],
+//   interestRate: 0.7,
+//   pin: 3333,
+// };
 
-const account4 = {
-  owner: 'Edison S Yantis',
-  movements: [430, 1000, 700, 50, 90],
-  interestRate: 1,
-  pin: 4444,
-};
+// const account4 = {
+//   owner: 'Edison S Yantis',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 4444,
+// };
 
-const account5 = {
-  owner: 'Zachary A Yantis',
-  movements: [430, 1000, 700, -50, 90],
-  interestRate: 0.6,
-  pin: 5555,
-};
+// const account5 = {
+//   owner: 'Zachary A Yantis',
+//   movements: [430, 1000, 700, -50, 90],
+//   interestRate: 0.6,
+//   pin: 5555,
+// };
 
-const accounts = [account1, account2, account3, account4, account5];
+// const accounts = [account1, account2, account3, account4, account5];
 
-//! The Find Method
+// //! The Find Method
 
-movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const firstWithdrawal = movements.find(mov => mov < 0); //Will only return first element that satisfies condition
-console.log(firstWithdrawal);
+// const firstWithdrawal = movements.find(mov => mov < 0); //Will only return first element that satisfies condition
+// console.log(firstWithdrawal);
 
-const account = accounts.find(acc => (acc.owner = 'Rebecca L Yantis'));
+// const account = accounts.find(acc => (acc.owner = 'Rebecca L Yantis'));
 
-//! Implementing Login
+//! Implementing Login (See Application)
+//! Implementing Transfers (See Application)
