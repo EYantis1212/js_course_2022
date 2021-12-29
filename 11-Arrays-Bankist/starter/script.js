@@ -6,31 +6,38 @@
 
 // Data
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Eric Yantis',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Rebecca Yantis',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
 };
 
 const account3 = {
-  owner: 'Steven Thomas Williams',
+  owner: 'Joseph Yantis',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
 };
 
 const account4 = {
-  owner: 'Sarah Smith',
+  owner: 'Edison Yantis',
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
+};
+
+const account5 = {
+  owner: 'Zachary Yantis',
+  movements: [430, 1000, 700, -50, 90],
+  interestRate: 0.6,
+  pin: 5555,
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -65,11 +72,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -158,3 +165,25 @@ movements.forEach(function (movement, index, array) {
 // For Each will always loop over the whole array...no breaks or continues
 
 //! For Each with Maps and Sets
+
+// WITH MAP
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+// WITH SET
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique); // Set(3) {'USD', 'GBP', 'EUR'}
+
+currenciesUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`); // USD: USD, GBP: GBP, EUR: EUR
+});
+// There are no keys in Sets so you just get two of the same arguments
+// So you can write: value, _, map
+
+//! Creating Dom Elements
