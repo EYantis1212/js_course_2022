@@ -191,3 +191,14 @@ const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
 
 //! The Reduce Method
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const maxValue = movements.reduce((acc, cur) => (acc > cur ? acc : cur), 0);
+console.log(maxValue);
+console.log(Math.max(...movements));
+
+//! Coding Challenge 2
