@@ -317,3 +317,34 @@ const reducer = (acc, val) => acc + val;
 console.log(movements.reduce(reducer));
 
 //! Flat and Flatmap
+
+const arr3 = [[1, 2, 3], [4, 5, 6], 7, 8, 9];
+console.log(arr3.flat()); // Flattens the array an makes all in one
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8, 9];
+console.log(arrDeep.flat()); // (7) [Array(2), 3, 4, Array(2), 7, 8, 9]
+// This only flattened to one level
+
+console.log(arrDeep.flat(2)); // Now with 2 levels deep it works
+
+console.log(accounts);
+
+const accountMovements = accounts.map(acc => acc.movements);
+console.log(accountMovements);
+const allMovements = accountMovements.flat();
+console.log(allMovements);
+
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance);
+
+const allMovementsEasier = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, val) => acc + val, 0);
+console.log(allMovementsEasier);
+
+//! Sorting Arrays
