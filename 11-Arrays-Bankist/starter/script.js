@@ -108,4 +108,18 @@ console.log([...arr, ...arr2]); // This does the same thing
 // JOIN
 console.log(letters.join('-')); // Creates string of array with set divider
 
-//!  The New At Method
+//!  The New 'At' Method
+
+const array = [23, 11, 64];
+console.log(array[0]);
+console.log(array.at(2)); // New way more modern
+
+console.log(array[-1]); // undefined...cant get last element this way
+console.log(array[array.length - 1]); // This is how you had to get last element
+console.log(array.slice(-1)[0]); // Or this
+console.log(array.at(-1)); // Now with modern 'at' method!!!!!!!!!!!!
+// This is better for chaining!!!
+
+console.log('yantis'.at(-1)); // It works with strings!!!!!!!!!!
+
+//! Looping Arrays: forEach
