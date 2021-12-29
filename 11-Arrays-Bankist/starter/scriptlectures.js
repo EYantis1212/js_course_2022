@@ -63,7 +63,7 @@ console.log('yantis'.at(-1)); // It works with strings!!!!!!!!!!
 
 //! Looping Arrays: forEach
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+let movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // These are deposits and withdrawls
 
 for (const movement of movements) {
@@ -161,3 +161,23 @@ const checkDogs = function (dogsJulia, dogsKate) {
   });
 };
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+//! Data Transformations: map, filter, reduce
+
+//! Map Method
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUSD = 1.13;
+
+const usdMovements = movements.map(mov => mov * eurToUSD);
+console.log(movements);
+console.log(usdMovements);
+
+const movementsDesc = movements.map((mov, i) => {
+  return mov > 0
+    ? `${i + 1}. Deposit of $${mov}`
+    : `${i + 1}. Withdrawal of $${Math.abs(mov)}`;
+});
+console.log(movementsDesc);
+
+//! Computing Usernames
