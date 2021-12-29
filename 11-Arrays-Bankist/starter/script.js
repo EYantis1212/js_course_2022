@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -123,3 +123,38 @@ console.log(array.at(-1)); // Now with modern 'at' method!!!!!!!!!!!!
 console.log('yantis'.at(-1)); // It works with strings!!!!!!!!!!
 
 //! Looping Arrays: forEach
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// These are deposits and withdrawls
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`$${movement} was deposited into your account`);
+  } else console.log(`$${Math.abs(movement)} was withdrawn from your account`);
+}
+
+//To Get the Index
+console.log('------------old way to get indexes-----------');
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`${i + 1}. $${movement} was deposited into your account`);
+  } else
+    console.log(
+      `${i + 1}. $${Math.abs(movement)} was withdrawn from your account`
+    );
+}
+// Now the for each
+console.log('-------------FOR EACH -----------------');
+
+// With the for Each you get the element, the index, and the entire array to play with
+movements.forEach(function (movement, index, array) {
+  return movement > 0
+    ? console.log(`${index + 1}. $${movement} was deposited into your account`)
+    : console.log(
+        `${index + 1}. $${Math.abs(movement)} was withdrawn from your account`
+      );
+});
+
+// For Each will always loop over the whole array...no breaks or continues
+
+//! For Each with Maps and Sets
