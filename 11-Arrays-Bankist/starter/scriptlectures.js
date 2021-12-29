@@ -234,5 +234,14 @@ const calcAverageHumanAge = function (dogAges) {
   return avgAge;
 };
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
-
+// eurToUSD = 1.13;
 //! The Magic of Chaining Methods
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUSD)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
+
+//! Coding Challenge 3
