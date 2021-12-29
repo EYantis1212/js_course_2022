@@ -180,4 +180,6 @@ const movementsDesc = movements.map((mov, i) => {
 });
 console.log(movementsDesc);
 
-//! Computing Usernames
+//! Computing Usernames (See App script.js)
+
+//! The Filter Method

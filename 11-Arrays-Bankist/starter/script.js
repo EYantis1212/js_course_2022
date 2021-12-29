@@ -6,41 +6,41 @@
 
 // Data
 const account1 = {
-  owner: 'Eric Yantis',
+  owner: 'Eric P Yantis',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
 
 const account2 = {
-  owner: 'Rebecca Yantis',
+  owner: 'Rebecca L Yantis',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
 };
 
 const account3 = {
-  owner: 'Joseph Yantis',
+  owner: 'Joseph A Yantis',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
 };
 
 const account4 = {
-  owner: 'Edison Yantis',
+  owner: 'Edison S Yantis',
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
 };
 
 const account5 = {
-  owner: 'Zachary Yantis',
+  owner: 'Zachary A Yantis',
   movements: [430, 1000, 700, -50, 90],
   interestRate: 0.6,
   pin: 5555,
 };
 
-const accounts = [account1, account2, account3, account4];
+const accounts = [account1, account2, account3, account4, account5];
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -82,3 +82,15 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
