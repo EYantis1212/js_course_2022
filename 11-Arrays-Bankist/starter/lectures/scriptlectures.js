@@ -289,3 +289,4 @@ console.log(totalDepositsUSD);
 
 //! Implementing Login (See Application)
 //! Implementing Transfers (See Application)
+//! The FindIndex Method
