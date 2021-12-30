@@ -334,3 +334,13 @@ console.log(5 % 2); //1
 const isEven = n => n % 2 === 0;
 
 //! Numeric Separators
+
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const priceCents = 34_99;
+
+const transferFee = 15_00;
+const transferFee2 = 1_500;
+
+//! Working with BigInt
