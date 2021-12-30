@@ -506,3 +506,58 @@ const dogs = [
   { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
   { weight: 32, curFood: 340, owners: ['Michael'] },
 ];
+
+const foodInRange = function (dog) {
+  if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1) {
+    return 'an ok amount';
+  } else if (dog.curFood > dog.recFood * 1.1) {
+    return 'too much';
+  } else return 'too little';
+};
+
+// 1.
+dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+console.log(dogs);
+
+// 2.
+const sarahsDog = dogs.filter(dog => dog.owners.includes('Sarah'));
+
+console.log(`Sarah's dog is eating ${foodInRange(sarahsDog[0])} food`);
+
+// 3.
+
+const eatsTooMuch = dogs
+  .filter(dog => foodInRange(dog) == 'too much')
+  .map(ele => ele.owners)
+  .flat();
+
+const eatsTooLittle = dogs
+  .filter(dog => foodInRange(dog) == 'too little')
+  .map(ele => ele.owners)
+  .flat();
+
+console.log(eatsTooLittle, eatsTooMuch);
+
+// 4. Log a string to the console for each array created in 3., like this: "Matilda and
+// Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat
+// too little!"
+
+console.log(`${eatsTooMuch.join(' and ')}'s Dogs eat too much`);
+console.log(`${eatsTooLittle.join(' and ')}'s Dogs eat too little`);
+
+dogs.forEach(function (dog) {
+  if (foodInRange(dog) == 'an ok amount') {
+    console.log(true);
+  }
+});
+const eatsEnough = dogs.filter(dog => foodInRange(dog) == 'an ok amount');
+console.log(eatsEnough);
+
+// 8. Create a shallow copy of the 'dogs' array and sort it by recommended food
+// portion in an ascending order (keep in mind that the portions are inside the
+// array's objects 😉)
+
+const shallowCopy = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(shallowCopy);
+
+//! END SECTION 11
