@@ -100,7 +100,7 @@ const displayMovements = function (movements, sort = false) {
 
 const calcDisplayBalance = function (acct) {
   acct.balance = acct.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acct.balance} EUR`;
+  labelBalance.textContent = `${acct.balance}€`;
 };
 
 const calcDisplaySummary = function (account) {
@@ -251,3 +251,6 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+// const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+// console.log(movementsUI);

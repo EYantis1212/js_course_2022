@@ -360,4 +360,28 @@ console.log(movements.sort((a, b) => (a > b ? 1 : -1)));
 movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements.sort((a, b) => a - b));
 
-//! More Ways of Creating and Filling Arrays
+//! More Ways of Creating and Filling Arrays (here and in App)
+let x = new Array(7);
+console.log(x); // Created empty array with 7 slots
+
+x.fill(1); // Now the array was filled with 1s
+
+x = new Array(7);
+x.fill(1, 3, 5);
+console.log(x); // elements 3 and up to 5 are filled with 1
+
+const y = [1, 2, 3, 4, 5, 6, 7];
+y.fill(1, 3, 6);
+console.log(y); // 3, 4, and 5 are now 1
+
+//ARRAY.FROM
+const gen1 = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(gen1); // [1, 2, 3, 4, 5, 6, 7]
+
+const diceRolls = Array.from(
+  { length: 100 },
+  (num, i) => (num = Math.ceil(Math.random() * 6))
+);
+console.log(diceRolls);
+
+//! Array Methods Practice
