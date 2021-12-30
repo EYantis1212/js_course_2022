@@ -344,3 +344,22 @@ const transferFee = 15_00;
 const transferFee2 = 1_500;
 
 //! Working with BigInt
+
+//JavaScript Numbers are stored in 64bits..53 bits or 1s and 0s for numbers and rest for signs and decimals
+
+const biggestNum = Number.MAX_SAFE_INTEGER;
+console.log(biggestNum); //9007199254740991
+// Things get weird after this number
+
+console.log(34053456236234562345623462346234623n); // Now this is a bigInt
+console.log(BigInt(239429354567458458));
+
+//operations
+console.log(1000000n * 2340234056n);
+
+// You just can not mix BigInts and other types...because they are stored in seperate places
+
+// You can compare between though like:
+console.log(20n > 19); //true
+
+//! Creating Dates
