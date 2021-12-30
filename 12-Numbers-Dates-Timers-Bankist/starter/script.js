@@ -328,3 +328,9 @@ console.log((2.1234556).toFixed(3)); // String of 2.123
 console.log(+(2.734567257).toFixed(3)); // Number of 2.735
 
 //! The Remainder Operator
+
+console.log(5 % 2); //1
+
+const isEven = n => n % 2 === 0;
+
+//! Numeric Separators
