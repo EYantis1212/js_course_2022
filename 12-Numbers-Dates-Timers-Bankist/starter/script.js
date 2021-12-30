@@ -166,7 +166,7 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
@@ -184,7 +184,7 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
@@ -208,7 +208,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = +inputLoanAmount.value;
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -225,7 +225,7 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
@@ -256,3 +256,29 @@ btnSort.addEventListener('click', function (e) {
 //!START SECTION 12 //////////////////////////////////////////////////////////
 
 //! Converting and Checking Numbers
+
+console.log(23 === 23.0); //true...all are floating point numbers
+console.log(0.1 + 0.2); //0.30000000000000004
+// This is why you can not do precise scientific or financial calculations in JS
+console.log(0.1 + 0.2 === 0.3); //False
+
+// Convert to number
+console.log(Number('23'));
+console.log(+'23');
+
+// Parsing
+console.log(Number.parseInt('94px', 10)); //94  ... the 10 means base 10... use 2 for binary
+console.log(Number.parseInt('2.5rem')); //2
+console.log(Number.parseFloat('2.5rem')); // 2.5
+
+// is NaN
+console.log(Number.isNaN(20)); //true
+console.log(Number.isNaN('20')); // true
+console.log(Number.isNaN(+'ff')); // true
+console.log(Number.isNaN(23 / 0)); // false
+
+// Best way to check if number
+console.log(Number.isFinite(20)); //true
+console.log(Number.isFinite('20')); //false
+console.log(Number.isFinite(+'20xf')); // false
+console.log(Number.isFinite(23 / 0)); // false
