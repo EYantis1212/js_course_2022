@@ -363,3 +363,40 @@ console.log(1000000n * 2340234056n);
 console.log(20n > 19); //true
 
 //! Creating Dates
+
+// Create a date
+
+// const now = new Date();
+// console.log(now); //Thu Dec 30 2021 06:27:01 GMT-0700 (Mountain Standard Time)
+
+// console.log(new Date('December 24')); //Mon Dec 24 2001 00:00:00 GMT-0700 (Mountain Standard Time)
+
+// console.log(new Date(account1.movementsDates[0])); //Mon Nov 18 2019 14:31:17 GMT-0700 (Mountain Standard Time)
+
+// // pick a date exactly 4 days from jan 01 1970
+// console.log(new Date(3 * 24 * 60 * 60 * 1000)); // Sat Jan 03 1970 17:00:00
+// const timestamp = 3 * 24 * 60 * 60 * 1000;
+// console.log(timestamp); // = 259200000
+
+// Working with date methods
+
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future); //Thu Nov 19 2037 15:23:00 GMT-0700 (Mountain Standard Time)
+console.log(future.getFullYear()); //2037
+console.log(future.getMonth()); // 10  ---This is November because 0 based
+console.log(future.getDate()); // 19 <---day
+console.log(future.getHours()); // 15
+console.log(future.getMinutes()); // 23
+console.log(future.getTime()); //2142282180000   <--- timestamp
+console.log(future.getTimezoneOffset()); // 420
+console.log(future.toISOString()); //2037-11-19T22:23:00.000Z
+console.log(future.toDateString()); //Thu Nov 19 2037
+console.log(future.getTime()); // 2142282180000 milliseconds since jan 1 1970
+
+console.log(new Date(2142282180000)); //Thu Nov 19 2037 15:23:00 GMT-0700 (Mountain Standard Time)
+console.log(Date.now()); //1640871640326
+
+future.setFullYear(2021);
+console.log(future); //Fri Nov 19 2021
+
+//! Adding Dates to Bankist App
