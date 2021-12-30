@@ -10,10 +10,12 @@
 // DIFFERENT DATA! Contains movement dates, currency and locale
 
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Eric P Yantis',
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // %
   pin: 1111,
+  hasLoan: false,
+  loanAmount: 0,
 
   movementsDates: [
     '2019-11-18T21:31:17.178Z',
@@ -30,10 +32,12 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Rebecca L Yantis',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+  hasLoan: false,
+  loanAmount: 0,
 
   movementsDates: [
     '2019-11-01T13:15:33.035Z',
@@ -90,13 +94,11 @@ const displayMovements = function (movements, sort = false) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
-      <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
-        <div class="movements__value">${mov}€</div>
-      </div>
-    `;
+	  <div class="movements__row">
+		<div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+		<div class="movements__value">${mov}€</div>
+	  </div>
+	`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
@@ -251,3 +253,4 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+//!START SECTION 12 //////////////////////////////////////////////////////////
