@@ -29,3 +29,5 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+//! START SECTION 13: Advanced DOM and Events
