@@ -165,30 +165,30 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 //! Data Transformations: map, filter, reduce
 
 //! Map Method
-movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const eurToUSD = 1.13;
+// const eurToUSD = 1.13;
 
-const usdMovements = movements.map(mov => mov * eurToUSD);
-console.log(movements);
-console.log(usdMovements);
+// const usdMovements = movements.map(mov => mov * eurToUSD);
+// console.log(movements);
+// console.log(usdMovements);
 
-const movementsDesc = movements.map((mov, i) => {
-  return mov > 0
-    ? `${i + 1}. Deposit of $${mov}`
-    : `${i + 1}. Withdrawal of $${Math.abs(mov)}`;
-});
-console.log(movementsDesc);
+// const movementsDesc = movements.map((mov, i) => {
+//   return mov > 0
+//     ? `${i + 1}. Deposit of $${mov}`
+//     : `${i + 1}. Withdrawal of $${Math.abs(mov)}`;
+// });
+// console.log(movementsDesc);
 
-//! Computing Usernames (See App script.js)
+// //! Computing Usernames (See App script.js)
 
-//! The Filter Method
-movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const deposits = movements.filter(mov => mov > 0);
-console.log(deposits);
+// //! The Filter Method
+// movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const deposits = movements.filter(mov => mov > 0);
+// console.log(deposits);
 
-const withdrawals = movements.filter(mov => mov < 0);
-console.log(withdrawals);
+// const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawals);
 
 //! The Reduce Method
 movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -222,23 +222,23 @@ Test data:
 § Data 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
-const calcAverageHumanAge = function (dogAges) {
-  const avgAges = dogAges
-    .map(age => (age <= 2 ? age * 2 : age * 4 + 16))
-    .filter(age => age >= 18)
-    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-  return avgAges;
-};
-console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
-// eurToUSD = 1.13;
-//! The Magic of Chaining Methods
-movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const totalDepositsUSD = movements
-  .filter(mov => mov > 0)
-  .map(mov => mov * eurToUSD)
-  .reduce((acc, mov) => acc + mov, 0);
+// const calcAverageHumanAge = function (dogAges) {
+//   const avgAges = dogAges
+//     .map(age => (age <= 2 ? age * 2 : age * 4 + 16))
+//     .filter(age => age >= 18)
+//     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+//   return avgAges;
+// };
+// console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+// // eurToUSD = 1.13;
+// //! The Magic of Chaining Methods
+// movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * eurToUSD)
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(totalDepositsUSD);
+// console.log(totalDepositsUSD);
 
 //! Coding Challenge 3 (See refactored function at line 225)
 const account1 = {
@@ -385,3 +385,124 @@ const diceRolls = Array.from(
 console.log(diceRolls);
 
 //! Array Methods Practice
+
+//1 Sum all Deposits
+const allTransactions = accountMovements
+  .flat()
+  .filter(trans => trans > 0)
+  .reduce((acc, dep) => acc + dep, 0);
+console.log(allTransactions);
+
+//2 Count how many deposits of at least $1000
+
+// Method 1
+// const largeDeposits = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .filter((dep, i) => dep >= 1000).length;
+// console.log(largeDeposits);
+
+//Method 2
+// const largeDeposits = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter((dep, i) => dep >= 1000).length;
+// console.log(largeDeposits);
+
+//Method 3 w/ ++ operator
+// const largeDeposits = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((sum, cur) => (cur >= 1000 ? ++sum : sum), 0);
+// console.log(largeDeposits);
+
+// 3. Return Object with sum of Deposits and Withdrawals
+
+const sumTransObject = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+console.log(sumTransObject);
+
+// 4. Convert any string to Title Case
+const convertToTitleCase = function (title) {
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'with', 'and'];
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  return capitalize(titleCase);
+};
+
+console.log(convertToTitleCase('this is a nice title'));
+console.log(convertToTitleCase('this is a LONG title, but not too long'));
+console.log(
+  convertToTitleCase(
+    'and here is another title with an EXAMPLE and it is awesome'
+  )
+);
+
+//! Coding Challenge 4
+
+/*
+Coding Challenge #4
+Julia and Kate are still studying dogs, and this time they are studying if dogs are
+eating too much or too little.
+Eating too much means the dog's current food portion is larger than the
+recommended portion, and eating too little is the opposite.
+Eating an okay amount means the dog's current food portion is within a range 10%
+above and 10% below the recommended portion (see hint).
+Your tasks:
+1. Loop over the 'dogs' array containing dog objects, and for each dog, calculate
+the recommended food portion and add it to the object as a new property. Do
+not create a new array, simply loop over the array. Forumla:
+recommendedFood = weight ** 0.75 * 28. (The result is in grams of
+food, and the weight needs to be in kg)
+2. Find Sarah's dog and log to the console whether it's eating too much or too
+little. Hint: Some dogs have multiple owners, so you first need to find Sarah in
+the owners array, and so this one is a bit tricky (on purpose) 🤓
+3. Create an array containing all owners of dogs who eat too much
+('ownersEatTooMuch') and an array with all owners of dogs who eat too little
+('ownersEatTooLittle').
+4. Log a string to the console for each array created in 3., like this: "Matilda and
+Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat
+too little!"
+5. Log to the console whether there is any dog eating exactly the amount of food
+that is recommended (just true or false)
+6. Log to the console whether there is any dog eating an okay amount of food
+(just true or false)
+7. Create an array containing the dogs that are eating an okay amount of food (try
+to reuse the condition used in 6.)
+8. Create a shallow copy of the 'dogs' array and sort it by recommended food
+portion in an ascending order (keep in mind that the portions are inside the
+array's objects 😉)
+The Complete JavaScript Course
+25Hints:
+§
+Use many different tools to solve these challenges, you can use the summary
+lecture to choose between them 😉
+§
+Being within a range 10% above and below the recommended portion means:
+current > (recommended * 0.90) && current < (recommended *
+1.10). Basically, the current portion should be between 90% and 110% of the
+recommended portion.
+Test data:
+const dogs = [
+{ weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+{ weight: 8, curFood: 200, owners: ['Matilda'] },
+{ weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+{ weight: 32, curFood: 340, owners: ['Michael'] },
+];
+GOOD LUCK 😀 */
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
