@@ -36,12 +36,29 @@ message.classList.add('cookie-message');
 message.innerHTML =
   'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 header.append(message);
+
+// Remove cookie message
 document
   .querySelector('.btn--close-cookie')
   .addEventListener('click', function () {
     message.remove();
   });
+
+// Styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '100vw';
+console.log(getComputedStyle(message).color);
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
+console.log(getComputedStyle(message).height);
+
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// Attributes
+const log = document.querySelector('.nav__logo');
+
 //! START SECTION 13: Advanced DOM and Events
 
 //! Selecting, Creating, and Deleting Elements
 //! Styles, Attributes and Classes
+//! Implementing Smooth Scrolling
