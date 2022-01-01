@@ -58,7 +58,28 @@ console.log(getComputedStyle(message).height);
 const log = document.querySelector('.nav__logo');
 
 //! START SECTION 13: Advanced DOM and Events
-
 //! Selecting, Creating, and Deleting Elements
 //! Styles, Attributes and Classes
 //! Implementing Smooth Scrolling
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  e.preventDefault;
+  const s1coords = section1.getBoundingClientRect();
+  //scrolling old school way
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  // Modern Way Scroll
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+//! Types of Events and Event Handlers
