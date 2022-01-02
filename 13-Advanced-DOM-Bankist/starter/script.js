@@ -1,6 +1,10 @@
 'use strict';
 
 ///////////////////////////////////////
+// Navigation Bar
+const navBar = document.querySelector('.nav');
+const navLinks = document.querySelector('.nav__links');
+const navLink = document.querySelector('.nav__link');
 // Modal window
 
 const modal = document.querySelector('.modal');
@@ -99,3 +103,17 @@ This can also be stated as propagating.
 */
 
 //! Event Propagation in Practice
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)},${randomInt(0, 255)})`;
+console.log(randomColor(0, 255));
+
+navBar.addEventListener('click', function (e) {});
+
+navLink.addEventListener('click', function (e) {});
+
+navLinks.addEventListener('click', function (e) {});
+
+//! Event Delegation: Implementing Page Navigation
