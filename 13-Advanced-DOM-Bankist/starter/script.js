@@ -361,3 +361,17 @@ slider();
 //! Lazy Loading Images
 //! Building a Slider Component
 //! Lifecycle Dom Events
+
+// document.addEventListener('DOMContentLoaded', function (e) {
+//   console.log('HTML Parsed and DOM Tree Built', e);
+// });
+
+// window.addEventListener('load', function (e) {
+//   console.log('Page Fully Loaded', e);
+// });
+// document.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+// });
+
+//! Efficient Script Loading: defer adn async
