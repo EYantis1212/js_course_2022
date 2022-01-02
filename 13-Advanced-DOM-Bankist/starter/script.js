@@ -140,3 +140,41 @@ navLinks.addEventListener('click', function (e) {
 
 // //! Event Delegation: Implementing Page Navigation
 //! DOM Traversing
+
+// const h1 = document.querySelector('h1');
+
+// // Going Downwards: child   //! This works no matter how deep
+// console.log(h1.querySelectorAll('.highlight'));
+// console.log(h1.childNodes);
+// console.log(h1.children); // Live collection
+
+// // h1.firstElementChild.style.color = 'white';
+// // h1.lastElementChild.style.color = 'orangered';
+
+// // Going upwards: Parent
+
+// console.log(h1.parentNode); // header__title
+// console.log(h1.parentElement); // Same as above ibn this instance
+
+// h1.closest('.header').style.background = 'var(--gradient-secondary';
+//h1.closest('h1').style.background = 'var(--gradient-primary';
+
+// Going Sideways: Siblings  //! You can only select previous and next siblings
+
+//elements
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
+// //everything
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
+
+// console.log(h1.parentElement.children); // This gives all siblings including itself
+
+// [...h1.parentElement.children].forEach(function (el) {
+//   if (el !== h1) {
+//     // This is how you can exclude the h1 (element you called children on)
+//     el.style.transform = 'scale(0.5)';
+//   }
+// });
+
+//! Building a Tabbed Component
