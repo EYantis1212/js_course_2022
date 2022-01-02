@@ -8,6 +8,8 @@ const navBar = document.querySelector('.nav');
 const navLinks = document.querySelector('.nav__links');
 const navLink = document.querySelectorAll('.nav__link');
 const section1 = document.querySelector('#section--1');
+// All Sections selector
+const allSections = document.querySelectorAll('.section');
 // Modal window selectors
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -77,7 +79,6 @@ navLinks.addEventListener('click', function (e) {
 
 // Sticky Navigation
 const navHeight = navBar.getBoundingClientRect().height;
-console.log(navHeight);
 
 const stickyNav = function (entries) {
   const [entry] = entries;
@@ -133,6 +134,22 @@ const handleHover = function (e) {
 // Passing value for "this" into Handler
 navLinks.addEventListener('mouseover', handleHover.bind(0.5));
 navLinks.addEventListener('mouseout', handleHover.bind(1));
+
+// Reveal Sections
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
 //* ///////////////////////////////////////////////////////////////
 //* ///////////////////////////////////////////////////////////////
 //* ///////////////////////////////////////////////////////////////
@@ -244,3 +261,5 @@ navLinks.addEventListener('mouseout', handleHover.bind(1));
 //! Implementing a Sticky Navigation: The Scroll Event
 //! The Intersection Observer API
 //! Revealing Elements on Scroll
+
+//! Lazy Loading Images
