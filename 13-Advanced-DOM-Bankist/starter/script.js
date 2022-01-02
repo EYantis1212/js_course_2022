@@ -75,6 +75,11 @@ navLinks.addEventListener('click', function (e) {
   }
 });
 
+// Sticky Navigation
+window.addEventListener('scroll', function (e) {
+  console.log(e);
+});
+
 // Tabbed Component
 opsTabsContainer.addEventListener('click', function (e) {
   e.preventDefault();
@@ -225,3 +230,4 @@ navLinks.addEventListener('mouseout', handleHover.bind(1));
 //! Building a Tabbed Component
 //! Passing Arguments to Event Handlers
 //! Implementing a Sticky Navigation: The Scroll Event
+//! The Intersection Observer API
