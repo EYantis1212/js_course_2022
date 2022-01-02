@@ -375,3 +375,4 @@ slider();
 // });
 
 //! Efficient Script Loading: defer adn async
+//! END SECTION 13
