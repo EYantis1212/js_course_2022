@@ -76,9 +76,21 @@ navLinks.addEventListener('click', function (e) {
 });
 
 // Sticky Navigation
-window.addEventListener('scroll', function (e) {
-  console.log(e);
+const navHeight = navBar.getBoundingClientRect().height;
+console.log(navHeight);
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    navBar.classList.add('sticky');
+  } else navBar.classList.remove('sticky');
+};
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: [0],
+  rootMargin: `-${navHeight}px`,
 });
+headerObserver.observe(header);
 
 // Tabbed Component
 opsTabsContainer.addEventListener('click', function (e) {
@@ -93,7 +105,7 @@ opsTabsContainer.addEventListener('click', function (e) {
     cont.classList.remove('operations__content--active')
   );
 
-  ////Add Active Classes
+  //Add Active Classes
 
   //Tab
   clicked.classList.add('operations__tab--active');
@@ -231,3 +243,4 @@ navLinks.addEventListener('mouseout', handleHover.bind(1));
 //! Passing Arguments to Event Handlers
 //! Implementing a Sticky Navigation: The Scroll Event
 //! The Intersection Observer API
+//! Revealing Elements on Scroll
