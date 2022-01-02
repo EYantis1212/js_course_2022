@@ -24,6 +24,12 @@ const btnScrollTo = document.querySelector('.btn--scroll-to');
 const opsTabs = document.querySelectorAll('.operations__tab');
 const opsTabsContainer = document.querySelector('.operations__tab-container');
 const opsTabsContent = document.querySelectorAll('.operations__content');
+// Slider Selector
+const slides = document.querySelectorAll('.slide');
+const sliderBtnRight = document.querySelector('.slider__btn--right');
+const sliderBtnLeft = document.querySelector('.slider__btn--left');
+const dotContainer = document.querySelector('.dots');
+const dots = document.querySelectorAll('.dots__dot');
 //* //////////////////////////////////////////////////////
 
 // Modal Window
@@ -169,6 +175,77 @@ const imageObserver = new IntersectionObserver(revealImages, {
   rootMargin: '+100px',
 });
 featureImages.forEach(img => imageObserver.observe(img));
+
+// Slider/////////////////////////////////////////////////////////
+const slider = function () {
+  // Declarations
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  //Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      // 100 * 0 - 0 = 0%, 100 X 1 - 0 == 100%, 100 * 2 - 0 = 200%, 100 * 3 - 0 = 300%
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  const nextSlide = function () {
+    if (curSlide == maxSlide - 1) {
+      curSlide = 0;
+    } else curSlide++;
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide;
+    }
+    curSlide--;
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+  const init = function () {
+    createDots();
+    activateDot(0);
+    goToSlide(0);
+  };
+  init();
+  // Event Handlers
+  sliderBtnRight.addEventListener('click', nextSlide);
+  sliderBtnLeft.addEventListener('click', prevSlide);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const slide = e.target.dataset.slide;
+      curSlide = slide;
+      activateDot(curSlide);
+      goToSlide(slide);
+    }
+  });
+};
+slider();
 //* ///////////////////////////////////////////////////////////////
 //* ///////////////////////////////////////////////////////////////
 //* ///////////////////////////////////////////////////////////////
@@ -283,3 +360,4 @@ featureImages.forEach(img => imageObserver.observe(img));
 
 //! Lazy Loading Images
 //! Building a Slider Component
+//! Lifecycle Dom Events
