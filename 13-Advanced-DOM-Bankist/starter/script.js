@@ -16,6 +16,10 @@ const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const header = document.querySelector('header');
 // Scroll Button Selector
 const btnScrollTo = document.querySelector('.btn--scroll-to');
+// Operations Selectors
+const opsTabs = document.querySelectorAll('.operations__tab');
+const opsTabsContainer = document.querySelector('.operations__tab-container');
+const opsTabsContent = document.querySelectorAll('.operations__content');
 //* //////////////////////////////////////////////////////
 
 // Modal Window
@@ -69,6 +73,31 @@ navLinks.addEventListener('click', function (e) {
     const id = e.target.getAttribute('href');
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
+});
+
+// Tabbed Component
+opsTabsContainer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const clicked = e.target.closest('.operations__tab');
+  // Guard Clause
+  if (!clicked) return;
+
+  //Remove Active Classes
+  opsTabs.forEach(t => t.classList.remove('operations__tab--active'));
+  opsTabsContent.forEach(cont =>
+    cont.classList.remove('operations__content--active')
+  );
+
+  ////Add Active Classes
+
+  //Tab
+  clicked.classList.add('operations__tab--active');
+
+  //Content Area
+
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 });
 
 //* ///////////////////////////////////////////////////////////////
