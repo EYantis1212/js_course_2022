@@ -1,17 +1,24 @@
 'use strict';
 
-///////////////////////////////////////
-// Navigation Bar
+//* //////////////////////////////////////////////////
+
+// SELECTORS
+// Nav Selectors
 const navBar = document.querySelector('.nav');
 const navLinks = document.querySelector('.nav__links');
-const navLink = document.querySelector('.nav__link');
-// Modal window
-
+const navLink = document.querySelectorAll('.nav__link');
+const section1 = document.querySelector('#section--1');
+// Modal window selectors
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const header = document.querySelector('header');
+// Scroll Button Selector
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+//* //////////////////////////////////////////////////////
+
+// Modal Window
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -34,41 +41,9 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-// Cookie Message
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML =
-  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
-header.append(message);
+//* //////////////////////////////////////////////////////
 
-// Remove cookie message
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function () {
-    message.remove();
-  });
-
-// Styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '100vw';
-console.log(getComputedStyle(message).color);
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
-console.log(getComputedStyle(message).height);
-
-// document.documentElement.style.setProperty('--color-primary', 'orangered');
-
-// Attributes
-const log = document.querySelector('.nav__logo');
-
-//! START SECTION 13: Advanced DOM and Events
-//! Selecting, Creating, and Deleting Elements
-//! Styles, Attributes and Classes
-//! Implementing Smooth Scrolling
-
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
+// Button Scrolling
 btnScrollTo.addEventListener('click', function (e) {
   e.preventDefault;
   const s1coords = section1.getBoundingClientRect();
@@ -86,34 +61,82 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-//! Types of Events and Event Handlers
-//! Bubbling and Capturing
+// Page Navigation
 
-/*
-1. Capturing Phase -  Event goes from root all the way down the DOM tree
-    until reaching target element
+navLinks.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
 
-2. Target Phase - Event triggers at eventlistener target
+//* ///////////////////////////////////////////////////////////////
+//* ///////////////////////////////////////////////////////////////
+//* ///////////////////////////////////////////////////////////////
+//* ///////////////////////////////////////////////////////////////
 
-3. Bubbling Phase - The event echos/bubbles up through entire DOM tree
-    until it reaches root.
+// // Cookie Message
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.innerHTML =
+//   'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// header.append(message);
 
-Therefore it is the same as triggering the event in each of the parent nodes.
-This can also be stated as propagating.
-*/
+// // Remove cookie message
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//     message.remove();
+//   });
 
-//! Event Propagation in Practice
+// // Styles
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '100vw';
+// console.log(getComputedStyle(message).color);
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
+// console.log(getComputedStyle(message).height);
 
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-const randomColor = () =>
-  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)},${randomInt(0, 255)})`;
-console.log(randomColor(0, 255));
+// // document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-navBar.addEventListener('click', function (e) {});
+// // Attributes
+// const log = document.querySelector('.nav__logo');
 
-navLink.addEventListener('click', function (e) {});
+// //! START SECTION 13: Advanced DOM and Events
+// //! Selecting, Creating, and Deleting Elements
+// //! Styles, Attributes and Classes
+// //! Implementing Smooth Scrolling
 
-navLinks.addEventListener('click', function (e) {});
+// //! Types of Events and Event Handlers
+// //! Bubbling and Capturing
 
-//! Event Delegation: Implementing Page Navigation
+// /*
+// 1. Capturing Phase -  Event goes from root all the way down the DOM tree
+//     until reaching target element
+
+// 2. Target Phase - Event triggers at eventlistener target
+
+// 3. Bubbling Phase - The event echos/bubbles up through entire DOM tree
+//     until it reaches root.
+
+// Therefore it is the same as triggering the event in each of the parent nodes.
+// This can also be stated as propagating.
+// */
+
+// //! Event Propagation in Practice
+
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1) + min);
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)},${randomInt(0, 255)})`;
+// console.log(randomColor(0, 255));
+
+// navBar.addEventListener('click', function (e) {});
+
+// navLink.addEventListener('click', function (e) {});
+
+// navLinks.addEventListener('click', function (e) {});
+
+// //! Event Delegation: Implementing Page Navigation
+//! DOM Traversing
