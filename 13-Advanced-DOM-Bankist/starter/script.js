@@ -83,3 +83,4 @@ btnScrollTo.addEventListener('click', function (e) {
 });
 
 //! Types of Events and Event Handlers
+//! Bubbling and Capturing
