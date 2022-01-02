@@ -84,3 +84,18 @@ btnScrollTo.addEventListener('click', function (e) {
 
 //! Types of Events and Event Handlers
 //! Bubbling and Capturing
+
+/*
+1. Capturing Phase -  Event goes from root all the way down the DOM tree
+    until reaching target element
+
+2. Target Phase - Event triggers at eventlistener target
+
+3. Bubbling Phase - The event echos/bubbles up through entire DOM tree
+    until it reaches root.
+
+Therefore it is the same as triggering the event in each of the parent nodes.
+This can also be stated as propagating.
+*/
+
+//! Event Propagation in Practice
