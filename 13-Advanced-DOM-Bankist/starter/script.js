@@ -10,6 +10,8 @@ const navLink = document.querySelectorAll('.nav__link');
 const section1 = document.querySelector('#section--1');
 // All Sections selector
 const allSections = document.querySelectorAll('.section');
+// Feature Selectors
+const featureImages = document.querySelectorAll('.features__img');
 // Modal window selectors
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -150,6 +152,23 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+// Lazy Loading Images
+const revealImages = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+  observer.unobserve(entry.target);
+};
+const imageObserver = new IntersectionObserver(revealImages, {
+  root: null,
+  threshold: 0.15,
+  rootMargin: '+100px',
+});
+featureImages.forEach(img => imageObserver.observe(img));
 //* ///////////////////////////////////////////////////////////////
 //* ///////////////////////////////////////////////////////////////
 //* ///////////////////////////////////////////////////////////////
@@ -263,3 +282,4 @@ allSections.forEach(function (section) {
 //! Revealing Elements on Scroll
 
 //! Lazy Loading Images
+//! Building a Slider Component
