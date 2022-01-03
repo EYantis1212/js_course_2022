@@ -81,3 +81,30 @@ console.log(eric.hasOwnProperty('species')); // false
 // §
 // Data car 1: 'BMW' going at 120 km/h
 // Data car 2: 'Mercedes' going at 95km/hr
+
+const Car = function (make, speed) {
+	this.speed = speed;
+	this.make = make;
+};
+Car.prototype.accelerate = function () {
+	this.speed += 10;
+	console.log(`${this.make} is now going ${this.speed}km/h`);
+};
+Car.prototype.brake = function () {
+	this.speed -= 5;
+	console.log(`${this.make} is now going ${this.speed}km/h`);
+};
+
+const car1 = new Car('Toyota', 50);
+console.log(car1);
+car1.accelerate();
+car1.brake();
+car1.accelerate();
+
+const car2 = new Car('Honda', 50);
+console.log(car1);
+car2.accelerate();
+car2.brake();
+car2.accelerate();
+
+//! ES6 Classes
