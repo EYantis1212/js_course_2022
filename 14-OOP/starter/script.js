@@ -82,29 +82,52 @@ console.log(eric.hasOwnProperty('species')); // false
 // Data car 1: 'BMW' going at 120 km/h
 // Data car 2: 'Mercedes' going at 95km/hr
 
-const Car = function (make, speed) {
-	this.speed = speed;
-	this.make = make;
-};
-Car.prototype.accelerate = function () {
-	this.speed += 10;
-	console.log(`${this.make} is now going ${this.speed}km/h`);
-};
-Car.prototype.brake = function () {
-	this.speed -= 5;
-	console.log(`${this.make} is now going ${this.speed}km/h`);
-};
+// const Car = function (make, speed) {
+// 	this.speed = speed;
+// 	this.make = make;
+// };
+// Car.prototype.accelerate = function () {
+// 	this.speed += 10;
+// 	console.log(`${this.make} is now going ${this.speed}km/h`);
+// };
+// Car.prototype.brake = function () {
+// 	this.speed -= 5;
+// 	console.log(`${this.make} is now going ${this.speed}km/h`);
+// };
 
-const car1 = new Car('Toyota', 50);
-console.log(car1);
-car1.accelerate();
-car1.brake();
-car1.accelerate();
+// const car1 = new Car('Toyota', 50);
+// console.log(car1);
+// car1.accelerate();
+// car1.brake();
+// car1.accelerate();
 
-const car2 = new Car('Honda', 50);
-console.log(car1);
-car2.accelerate();
-car2.brake();
-car2.accelerate();
+// const car2 = new Car('Honda', 50);
+// console.log(car1);
+// car2.accelerate();
+// car2.brake();
+// car2.accelerate();
 
 //! ES6 Classes
+//Class Expression
+// const PersonCl = class {}
+
+// // Class Declaration
+// class PersonCl {
+// 	constructor(firstName, birthYear) {
+// 		this.firstName = firstName;
+// 		this.birthYear = birthYear;
+// 	}
+// 	calcAge() {
+// 		console.log(2022 - this.birthYear);
+// 	}
+// }
+
+// const rebecca = new PersonCl('Rebecca', 1983);
+// console.log(rebecca);
+// rebecca.calcAge();
+
+//1. Classes are not hoisted even if declarations
+//2. Classes are also first-class-citizens...can be passes into functions and returned from functions
+//3. Classes are always executed in strict mode
+
+//! Setters and Getters
