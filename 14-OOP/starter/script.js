@@ -244,35 +244,36 @@ GOOD LUCK 😀
 
 //! Inheritance Between "Classes":ES6 Classes
 
-const Person = function (firstName, birthYear) {
-	console.log(this); // Person {}
-	this.firstName = firstName;
-	this.birthYear = birthYear;
-};
-Person.prototype.calcAge = function () {
-	console.log(2022 - this.birthYear);
-};
+// const Person = function (firstName, birthYear) {
+// 	console.log(this); // Person {}
+// 	this.firstName = firstName;
+// 	this.birthYear = birthYear;
+// };
+// Person.prototype.calcAge = function () {
+// 	console.log(2022 - this.birthYear);
+// };
 
-const Student = function (firstName, birthYear, course) {
-	// The bind, call, and apply methods all take the value of 'this' as first argument
-	Person.call(this, firstName, birthYear);
-	this.course = course;
-};
+// const Student = function (firstName, birthYear, course) {
+// 	// The bind, call, and apply methods all take the value of 'this' as first argument
+// 	Person.call(this, firstName, birthYear);
+// 	this.course = course;
+// };
 
-// Linking Prototypes
-Student.prototype = Object.create(Person.prototype);
+// // Linking Prototypes
+// Student.prototype = Object.create(Person.prototype);
 
-Student.prototype.introduce = function () {
-	console.log(`My name is ${this.firstName} and I study ${this.course}`);
-};
-const edison = new Student('Edison', 2007, 'Computer Science');
-console.log(edison);
-edison.introduce();
-edison.calcAge();
-Student.prototype.constructor = Student;
-console.log(edison);
+// Student.prototype.introduce = function () {
+// 	console.log(`My name is ${this.firstName} and I study ${this.course}`);
+// };
+// const edison = new Student('Edison', 2007, 'Computer Science');
+// console.log(edison);
+// edison.introduce();
+// edison.calcAge();
+// Student.prototype.constructor = Student;
+// console.log(edison);
 
 //! Coding Challenge #3
+
 /*
 Your tasks:
 1. Use a constructor function to implement an Electric Car (called 'EV') as a child
@@ -291,3 +292,41 @@ Test data:
 Data car 1: 'Tesla' going at 120 km/h, with a charge of 23%
 GOOD LUCK 😀
 */
+// const Car = function (make, speed) {
+// 	this.make = make;
+// 	this.speed = speed;
+// };
+// Car.prototype.accelerate = function () {
+// 	this.speed += 20;
+// };
+// Car.prototype.brake = function () {
+// 	this.speed -= 10;
+// };
+// const EV = function (make, speed, charge) {
+// 	Car.call(this, make, speed);
+// 	this.charge = charge;
+// };
+
+// EV.prototype = Object.create(Car.prototype);
+
+// EV.prototype.chargeBattery = function (chargeTo) {
+// 	this.charge = chargeTo;
+// 	console.log(`Battery now charged to ${chargeTo}%`);
+// };
+// EV.prototype.accelerate = function () {
+// 	this.speed += 10;
+// 	this.charge--;
+// 	console.log(
+// 		`The ${this.make} is accelerating to ${this.speed}km/h.  Battery has ${this.charge}% charge left`
+// 	);
+// };
+// EV.prototype.brake = function () {
+// 	this.speed -= 5;
+// 	console.log(
+// 		`The ${this.make} is decelerating to ${this.speed}km/h.  Battery has ${this.charge}% charge left`
+// 	);
+// };
+// const tesla = new EV('tesla', 60, 20);
+// console.log(tesla);
+
+//! Inheritance Between Classes: ES6 Classes
