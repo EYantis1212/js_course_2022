@@ -383,34 +383,34 @@ GOOD LUCK 😀
 // joseph.calcAge();
 
 //! Inheritance Between "Classes: Object.create"
-const PersonProto = {
-	calcAge() {
-		console.log(2021 - this.birthYear);
-	},
-	init(firstName, birthYear) {
-		this.firstName = firstName;
-		this.birthYear = birthYear;
-	},
-};
+// const PersonProto = {
+// 	calcAge() {
+// 		console.log(2021 - this.birthYear);
+// 	},
+// 	init(firstName, birthYear) {
+// 		this.firstName = firstName;
+// 		this.birthYear = birthYear;
+// 	},
+// };
 
-const zachary = Object.create(PersonProto);
-zachary.init('Zachary', 2009);
-console.log(zachary);
+// const zachary = Object.create(PersonProto);
+// zachary.init('Zachary', 2009);
+// console.log(zachary);
 
-const StudentProto = Object.create(PersonProto);
+// const StudentProto = Object.create(PersonProto);
 
-StudentProto.init = function (firstName, birthYear, course) {
-	PersonProto.init.call(this, firstName, birthYear);
-	this.course = course;
-};
-StudentProto.introduce = function () {
-	console.log(`My name is ${this.firstName} and I study ${this.course}`);
-};
-const edison = Object.create(StudentProto);
-edison.init('Edison', 2007, 'Web Development');
-console.log(edison);
-edison.introduce();
-edison.calcAge();
+// StudentProto.init = function (firstName, birthYear, course) {
+// 	PersonProto.init.call(this, firstName, birthYear);
+// 	this.course = course;
+// };
+// StudentProto.introduce = function () {
+// 	console.log(`My name is ${this.firstName} and I study ${this.course}`);
+// };
+// const edison = Object.create(StudentProto);
+// edison.init('Edison', 2007, 'Web Development');
+// console.log(edison);
+// edison.introduce();
+// edison.calcAge();
 
 //! Another Class Example
 
@@ -418,20 +418,25 @@ class Account {
 	constructor(owner, currency, pin) {
 		this.owner = owner;
 		this.currency = currency;
-		this.pin = pin;
-		this.movements = [];
+		this._pin = pin;
+		// Protected Properties
+		this._movements = [];
 		this.locale = navigator.language;
 
 		console.log(`Thanks for opening an account, ${owner}`);
 	}
 	// Public Interface
+	getMovements() {
+		return this._movements;
+	}
 	deposit(value) {
-		this.movements.push(value);
+		this._movements.push(value);
 	}
 	withdrawal(value) {
 		this.deposit(-value);
 	}
-	approveLoan(value) {
+
+	_approveLoan(value) {
 		return true;
 	}
 	requestLoan(value) {
@@ -448,3 +453,4 @@ acct1.withdrawal(90);
 console.log(acct1);
 
 //! Encapsulation: Protected Properties and Methods
+//! Encapsulation: Private Class Fields and Methods
