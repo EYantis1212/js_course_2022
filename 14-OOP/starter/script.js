@@ -413,3 +413,38 @@ edison.introduce();
 edison.calcAge();
 
 //! Another Class Example
+
+class Account {
+	constructor(owner, currency, pin) {
+		this.owner = owner;
+		this.currency = currency;
+		this.pin = pin;
+		this.movements = [];
+		this.locale = navigator.language;
+
+		console.log(`Thanks for opening an account, ${owner}`);
+	}
+	// Public Interface
+	deposit(value) {
+		this.movements.push(value);
+	}
+	withdrawal(value) {
+		this.deposit(-value);
+	}
+	approveLoan(value) {
+		return true;
+	}
+	requestLoan(value) {
+		if (this.approveLoan(val)) {
+			this.deposit(value);
+			console.log(`Loan approved in the amount of ${value}`);
+		}
+	}
+}
+
+const acct1 = new Account('Eric', 'USD', 1111);
+acct1.deposit(2000);
+acct1.withdrawal(90);
+console.log(acct1);
+
+//! Encapsulation: Protected Properties and Methods
