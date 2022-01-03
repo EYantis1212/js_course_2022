@@ -35,14 +35,14 @@ to model real-world relationships.
 //! OOP in JavaScript
 //! Constructor Functions and the New Operator
 
-const Person = function (firstName, birthYear) {
-	console.log(this); // Person {}
-	this.firstName = firstName;
-	this.birthYear = birthYear;
-};
+// const Person = function (firstName, birthYear) {
+// 	console.log(this); // Person {}
+// 	this.firstName = firstName;
+// 	this.birthYear = birthYear;
+// };
 
-const eric = new Person('Eric', 1980);
-console.log(eric); //Person {firstName: 'Eric', birthYear: 1980}
+// const eric = new Person('Eric', 1980);
+// console.log(eric); //Person {firstName: 'Eric', birthYear: 1980}
 
 // 4 Things happen with the new keyword
 // 1. New Object is Created {}
@@ -51,19 +51,19 @@ console.log(eric); //Person {firstName: 'Eric', birthYear: 1980}
 // 4. functions automatically returns {}
 
 //! Prototypes
-Person.prototype.calcAge = function () {
-	console.log(2022 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+// 	console.log(2022 - this.birthYear);
+// };
 
-eric.calcAge(); // 42
+// eric.calcAge(); // 42
 
-console.log(Person.prototype.isPrototypeOf(eric)); // true
-// Person.prototype is the prototype that the object 'eric' is pointing to with its __proto__
+// console.log(Person.prototype.isPrototypeOf(eric)); // true
+// // Person.prototype is the prototype that the object 'eric' is pointing to with its __proto__
 
-Person.prototype.species = 'Human';
+// Person.prototype.species = 'Human';
 
-console.log(eric.hasOwnProperty('firstName')); // true
-console.log(eric.hasOwnProperty('species')); // false
+// console.log(eric.hasOwnProperty('firstName')); // true
+// console.log(eric.hasOwnProperty('species')); // false
 
 //! Coding Challenge #1
 // Your tasks:
@@ -112,35 +112,35 @@ console.log(eric.hasOwnProperty('species')); // false
 // const PersonCl = class {}
 
 // // Class Declaration
-class PersonCl {
-	constructor(fullName, birthYear) {
-		this.fullName = fullName;
-		this.birthYear = birthYear;
-	}
-	// Instance Methods added to prototype
-	calcAge() {
-		console.log(2022 - this.birthYear);
-	}
-	get age() {
-		return 2022 - this.birthYear;
-	}
-	set fullName(name) {
-		if (name.includes(' ')) {
-			this._fullName = name;
-		} else alert(`${name} is not a full name`);
-	}
-	get fullName() {
-		return this._fullName;
-	}
-	// Static Method
-	static hey() {
-		console.log('Hey!!!');
-	}
-}
+// class PersonCl {
+// 	constructor(fullName, birthYear) {
+// 		this.fullName = fullName;
+// 		this.birthYear = birthYear;
+// 	}
+// 	// Instance Methods added to prototype
+// 	calcAge() {
+// 		console.log(2022 - this.birthYear);
+// 	}
+// 	get age() {
+// 		return 2022 - this.birthYear;
+// 	}
+// 	set fullName(name) {
+// 		if (name.includes(' ')) {
+// 			this._fullName = name;
+// 		} else alert(`${name} is not a full name`);
+// 	}
+// 	get fullName() {
+// 		return this._fullName;
+// 	}
+// 	// Static Method
+// 	static hey() {
+// 		console.log('Hey!!!');
+// 	}
+// }
 
-const rebecca = new PersonCl('Rebecca Yantis', 1983);
-console.log(rebecca);
-rebecca.calcAge();
+// const rebecca = new PersonCl('Rebecca Yantis', 1983);
+// console.log(rebecca);
+// rebecca.calcAge();
 
 //1. Classes are not hoisted even if declarations
 //2. Classes are also first-class-citizens...can be passes into functions and returned from functions
@@ -149,37 +149,37 @@ rebecca.calcAge();
 //! Setters and Getters
 // These are functions that look like normal properties but Get and Set values
 
-const account = {
-	owner: 'Eric',
-	movements: [200, 530, 120, 300],
+// const account = {
+// 	owner: 'Eric',
+// 	movements: [200, 530, 120, 300],
 
-	get latest() {
-		return this.movements.slice(-1).pop();
-	},
-	set latest(mov) {
-		this.movements.push(mov);
-	},
-};
+// 	get latest() {
+// 		return this.movements.slice(-1).pop();
+// 	},
+// 	set latest(mov) {
+// 		this.movements.push(mov);
+// 	},
+// };
 
-console.log(account.latest);
-account.latest = 500;
-console.log(account);
+// console.log(account.latest);
+// account.latest = 500;
+// console.log(account);
 
 //! Static Methods
 
 // Array.from
 // Number.parseFloat(12)
-// Here .from and parsefloat can not be used on their own since they are
+// Here .from and parseFloat can not be used on their own since they are
 // attached to the Number and Array constructors...they are not a part of their
 // target objects prototype
 
-Person.hey = function () {
-	console.log(`Hello!!!`);
-};
-// Here we set a static method...lets call it
-// rebecca.hey(); // Error not a function
-Person.hey(); // Hello!!!
-PersonCl.hey();
+// Person.hey = function () {
+// 	console.log(`Hello!!!`);
+// };
+// // Here we set a static method...lets call it
+// // rebecca.hey(); // Error not a function
+// Person.hey(); // Hello!!!
+// PersonCl.hey();
 
 //! Object.crate
 // const PersonProto = {
@@ -212,34 +212,82 @@ Test data:
 Data car 1: 'Ford' going at 120 km/h
 GOOD LUCK 😀
 */
-class CarCl {
-	constructor(make, speed) {
-		this.make = make;
-		this.speed = speed;
-	}
-	accelerate() {
-		this.speed += 10;
-		console.log(`${this.make} is now going ${this.speed}km/h`);
-	}
-	brake() {
-		this.speed - +10;
-		console.log(`${this.make} is now going ${this.speed}km/h`);
-	}
-	get speedUS() {
-		return this.speed / 1.6;
-	}
-	set speedUS(speed) {
-		this.speed = speed * 1.6;
-	}
-}
-const myCar = new CarCl('Nissan', 100);
-console.log(myCar);
-console.log(myCar.speedUS);
-myCar.speedUS = 150;
-console.log(myCar);
-console.log(myCar.speedUS);
-myCar.accelerate();
-myCar.accelerate();
-console.log(myCar.speedUS);
+// class CarCl {
+// 	constructor(make, speed) {
+// 		this.make = make;
+// 		this.speed = speed;
+// 	}
+// 	accelerate() {
+// 		this.speed += 10;
+// 		console.log(`${this.make} is now going ${this.speed}km/h`);
+// 	}
+// 	brake() {
+// 		this.speed - +10;
+// 		console.log(`${this.make} is now going ${this.speed}km/h`);
+// 	}
+// 	get speedUS() {
+// 		return this.speed / 1.6;
+// 	}
+// 	set speedUS(speed) {
+// 		this.speed = speed * 1.6;
+// 	}
+// }
+// const myCar = new CarCl('Nissan', 100);
+// console.log(myCar);
+// console.log(myCar.speedUS);
+// myCar.speedUS = 150;
+// console.log(myCar);
+// console.log(myCar.speedUS);
+// myCar.accelerate();
+// myCar.accelerate();
+// console.log(myCar.speedUS);
 
 //! Inheritance Between "Classes":ES6 Classes
+
+const Person = function (firstName, birthYear) {
+	console.log(this); // Person {}
+	this.firstName = firstName;
+	this.birthYear = birthYear;
+};
+Person.prototype.calcAge = function () {
+	console.log(2022 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+	// The bind, call, and apply methods all take the value of 'this' as first argument
+	Person.call(this, firstName, birthYear);
+	this.course = course;
+};
+
+// Linking Prototypes
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+	console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+const edison = new Student('Edison', 2007, 'Computer Science');
+console.log(edison);
+edison.introduce();
+edison.calcAge();
+Student.prototype.constructor = Student;
+console.log(edison);
+
+//! Coding Challenge #3
+/*
+Your tasks:
+1. Use a constructor function to implement an Electric Car (called 'EV') as a child
+"class" of 'Car'. Besides a make and current speed, the 'EV' also has the
+current battery charge in % ('charge' property)
+2. Implement a 'chargeBattery' method which takes an argument
+'chargeTo' and sets the battery charge to 'chargeTo'
+3. Implement an 'accelerate' method that will increase the car's speed by 20,
+and decrease the charge by 1%. Then log a message like this: 'Tesla going at 140
+km/h, with a charge of 22%'
+4. Create an electric car object and experiment with calling 'accelerate',
+'brake' and 'chargeBattery' (charge to 90%). Notice what happens when
+you 'accelerate'! Hint: Review the definition of polymorphism 😉
+Test data:
+§
+Data car 1: 'Tesla' going at 120 km/h, with a charge of 23%
+GOOD LUCK 😀
+*/
