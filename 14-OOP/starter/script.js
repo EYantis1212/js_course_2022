@@ -117,6 +117,7 @@ class PersonCl {
 		this.fullName = fullName;
 		this.birthYear = birthYear;
 	}
+	// Instance Methods added to prototype
 	calcAge() {
 		console.log(2022 - this.birthYear);
 	}
@@ -130,6 +131,10 @@ class PersonCl {
 	}
 	get fullName() {
 		return this._fullName;
+	}
+	// Static Method
+	static hey() {
+		console.log('Hey!!!');
 	}
 }
 
@@ -161,3 +166,19 @@ account.latest = 500;
 console.log(account);
 
 //! Static Methods
+
+// Array.from
+// Number.parseFloat(12)
+// Here .from and parsefloat can not be used on their own since they are
+// attached to the Number and Array constructors...they are not a part of their
+// target objects prototype
+
+Person.hey = function () {
+	console.log(`Hello!!!`);
+};
+// Here we set a static method...lets call it
+// rebecca.hey(); // Error not a function
+Person.hey(); // Hello!!!
+PersonCl.hey();
+
+//! Object.crate
