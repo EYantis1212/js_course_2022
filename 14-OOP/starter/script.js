@@ -330,3 +330,86 @@ GOOD LUCK 😀
 // console.log(tesla);
 
 //! Inheritance Between Classes: ES6 Classes
+
+// class PersonCl {
+// 	constructor(fullName, birthYear) {
+// 		this.fullName = fullName;
+// 		this.birthYear = birthYear;
+// 	}
+// 	// Instance Methods added to prototype
+// 	calcAge() {
+// 		console.log(2021 - this.birthYear);
+// 	}
+// 	get age() {
+// 		return 2021 - this.birthYear;
+// 	}
+// 	set fullName(name) {
+// 		if (name.includes(' ')) {
+// 			this._fullName = name;
+// 		} else alert(`${name} is not a full name`);
+// 	}
+// 	get fullName() {
+// 		return this._fullName;
+// 	}
+// 	// Static Method
+// 	static hey() {
+// 		console.log('Hey!!!');
+// 	}
+// }
+// class StudentCl extends PersonCl {
+// 	constructor(fullName, birthYear, course) {
+// 		// Always needs to happen first to set 'this' keyword
+// 		super(fullName, birthYear);
+// 		this.course = course;
+// 	}
+// 	introduce = function () {
+// 		console.log(`My name is ${this.fullName} and I study ${this.course}`);
+// 	};
+// 	calcAge() {
+// 		console.log(
+// 			`I am ${
+// 				2021 - this.birthYear
+// 			} years old, but as a student I feel more like I am ${
+// 				2021 - this.birthYear + 20
+// 			}`
+// 		);
+// 	}
+// }
+
+// const joseph = new StudentCl('Joseph Yantis', 2004, 'Computer Science');
+// console.log(joseph);
+
+// joseph.introduce();
+// joseph.calcAge();
+
+//! Inheritance Between "Classes: Object.create"
+const PersonProto = {
+	calcAge() {
+		console.log(2021 - this.birthYear);
+	},
+	init(firstName, birthYear) {
+		this.firstName = firstName;
+		this.birthYear = birthYear;
+	},
+};
+
+const zachary = Object.create(PersonProto);
+zachary.init('Zachary', 2009);
+console.log(zachary);
+
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+	PersonProto.init.call(this, firstName, birthYear);
+	this.course = course;
+};
+StudentProto.introduce = function () {
+	console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+const edison = Object.create(StudentProto);
+edison.init('Edison', 2007, 'Web Development');
+console.log(edison);
+edison.introduce();
+edison.calcAge();
+
+//! Another Class Example
