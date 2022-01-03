@@ -34,3 +34,20 @@ to model real-world relationships.
 
 //! OOP in JavaScript
 //! Constructor Functions and the New Operator
+
+const Person = function (firstName, birthYear) {
+	console.log(this); // Person {}
+	this.firstName = firstName;
+	this.birthYear = birthYear;
+};
+
+const eric = new Person('Eric', 1980);
+console.log(eric); //Person {firstName: 'Eric', birthYear: 1980}
+
+// 4 Things happen with the new keyword
+// 1. New Object is Created {}
+// 2. Function is called, this = {}
+// 3. {} is linked to prototype
+// 4. functions automatically returns {}
+
+//! Prototypes
