@@ -445,15 +445,18 @@ class Account {
 	}
 	deposit(value) {
 		this.#movements.push(value);
+		return this;
 	}
 	withdrawal(value) {
 		this.deposit(-value);
+		return this;
 	}
 
 	requestLoan(value) {
 		if (this.#approveLoan(value)) {
 			this.deposit(value);
 			console.log(`Loan approved in the amount of ${value}`);
+			return this;
 		}
 	}
 	// 4) Private Methods
@@ -469,3 +472,79 @@ console.log(acct1.requestLoan(200));
 console.log(acct1);
 
 //! Chaining Methods
+acct1
+	.deposit(300)
+	.deposit(500)
+	.withdrawal(35)
+	.requestLoan(2500)
+	.withdrawal(1000);
+
+console.log(acct1.getMovements());
+acct1.getMovements();
+
+//! Coding Challenge #4
+/*
+Your tasks:
+1. Re-create Challenge #3, but this time using ES6 classes: create an 'EVCl'
+child class of the 'CarCl' class
+2. Make the 'charge' property private
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery'
+methods of this class, and also update the 'brake' method in the 'CarCl'
+class. Then experiment with chaining!
+Test data:
+§
+Data car 1: 'Rivian' going at 120km/h, with a charge of 23%
+*/
+
+class CarCl {
+	constructor(make, speed) {
+		this.make = make;
+		this.speed = speed;
+	}
+	accelerate() {
+		this.speed += 20;
+		return this;
+	}
+	decelerate() {
+		this.speed -= 10;
+		return this;
+	}
+}
+
+class EVCl extends CarCl {
+	#charge;
+	constructor(make, speed, charge) {
+		super(make, speed);
+		this.#charge = charge;
+	}
+	chargeBattery(chargeTo) {
+		this.#charge = chargeTo;
+		console.log(`Battery now charged to ${chargeTo}%`);
+		return this;
+	}
+	accelerate() {
+		this.speed += 10;
+		this.#charge--;
+		console.log(
+			`The ${this.make} is accelerating to ${
+				this.speed
+			}km/h.  Battery has ${this.#charge}% charge left`
+		);
+		return this;
+	}
+	brake() {
+		this.speed -= 5;
+		console.log(
+			`The ${this.make} is decelerating to ${
+				this.speed
+			}km/h.  Battery has ${this.#charge}% charge left`
+		);
+		return this;
+	}
+}
+
+const rivian = new EVCl('Rivian', 120, 23);
+console.log(rivian);
+rivian.accelerate().accelerate().accelerate().brake().brake().chargeBattery(25);
+
+//! END SECTION 14
