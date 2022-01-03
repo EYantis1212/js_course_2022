@@ -112,22 +112,52 @@ console.log(eric.hasOwnProperty('species')); // false
 // const PersonCl = class {}
 
 // // Class Declaration
-// class PersonCl {
-// 	constructor(firstName, birthYear) {
-// 		this.firstName = firstName;
-// 		this.birthYear = birthYear;
-// 	}
-// 	calcAge() {
-// 		console.log(2022 - this.birthYear);
-// 	}
-// }
+class PersonCl {
+	constructor(fullName, birthYear) {
+		this.fullName = fullName;
+		this.birthYear = birthYear;
+	}
+	calcAge() {
+		console.log(2022 - this.birthYear);
+	}
+	get age() {
+		return 2022 - this.birthYear;
+	}
+	set fullName(name) {
+		if (name.includes(' ')) {
+			this._fullName = name;
+		} else alert(`${name} is not a full name`);
+	}
+	get fullName() {
+		return this._fullName;
+	}
+}
 
-// const rebecca = new PersonCl('Rebecca', 1983);
-// console.log(rebecca);
-// rebecca.calcAge();
+const rebecca = new PersonCl('Rebecca Yantis', 1983);
+console.log(rebecca);
+rebecca.calcAge();
 
 //1. Classes are not hoisted even if declarations
 //2. Classes are also first-class-citizens...can be passes into functions and returned from functions
 //3. Classes are always executed in strict mode
 
 //! Setters and Getters
+// These are functions that look like normal properties but Get and Set values
+
+const account = {
+	owner: 'Eric',
+	movements: [200, 530, 120, 300],
+
+	get latest() {
+		return this.movements.slice(-1).pop();
+	},
+	set latest(mov) {
+		this.movements.push(mov);
+	},
+};
+
+console.log(account.latest);
+account.latest = 500;
+console.log(account);
+
+//! Static Methods
