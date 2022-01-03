@@ -182,3 +182,18 @@ Person.hey(); // Hello!!!
 PersonCl.hey();
 
 //! Object.crate
+const PersonProto = {
+	calcAge() {
+		console.log(2022 - this.birthYear);
+	},
+	init(firstName, birthYear) {
+		this.firstName = firstName;
+		this.birthYear = birthYear;
+	},
+};
+const joseph = Object.create(PersonProto);
+joseph.init('Joseph', 2004);
+console.log(joseph);
+joseph.calcAge();
+
+//! Coding Challenge #2
