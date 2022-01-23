@@ -200,17 +200,45 @@ GOOD LUCK 😀
 
 */
 
-const whereAmI = function (lat, lng) {
-  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-    .then(response => {
-      console.log(response);
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-      btn.addEventListener('click', e => getCountryData(data.country));
-    })
-    .catch(err => console.log(`Shit went wrong ${err}`));
+// const whereAmI = function (lat, lng) {
+//   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+//     .then(response => {
+//       if (!response.ok)
+//         throw new Error(`Problem with geocoding ${response.status}`);
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//       btn.addEventListener('click', e => getCountryData(data.country));
+//     })
+//     .catch(err => console.log(`Shit went wrong ${err}`));
+// };
+
+// whereAmI(-33.933, 18.474);
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening...');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You Win');
+    } else {
+      reject(new Error('You Lose'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
 };
 
-whereAmI(-33.933, 18.474);
+wait(2)
+  .then(() => {
+    console.log('waited for 2 secs');
+    return wait(1);
+  })
+  .then(() => console.log('waited for 1 sec'));
