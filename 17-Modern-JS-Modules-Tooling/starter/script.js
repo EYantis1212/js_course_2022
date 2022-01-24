@@ -18,13 +18,29 @@ import add from './shoppingCart.js';
 // const data = await res.json();
 // console.log(data);
 
-const getLastPost = async function () {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const data = await res.json();
-  console.log(data);
-  return { title: data.at(-1).title, body: data.at(-1).body };
+// const getLastPost = async function () {
+//   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+//   const data = await res.json();
+//   console.log(data);
+//   return { title: data.at(-1).title, body: data.at(-1).body };
+// };
+
+// const lastPost = getLastPost();
+
+// lastPost.then(last => console.log(last));
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 5 },
+  ],
+  user: { loggedIn: true },
 };
 
-const lastPost = getLastPost();
+const stateClone = Object.assign({}, state);
+console.log(stateClone);
 
-lastPost.then(last => console.log(last));
+const stateDeepClone = cloneDeep(state);
+console.log(stateDeepClone);
