@@ -372,9 +372,20 @@ const whereAmI = async function (country) {
     const [data] = await res.json();
     renderCountry(data);
     countriesContainer.style.opacity = 1;
+    return `You are in ${geoData.city}, ${geoData.country}`;
   } catch (err) {
     renderCountry(`${err.message}`);
+
+    // Reject promise returned from async function
+    throw err;
   }
 };
 
-whereAmI('japan');
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(`${city}`);
+  } catch (err) {
+    console.error(`${err.message}`);
+  }
+})();
