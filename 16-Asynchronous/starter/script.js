@@ -125,37 +125,37 @@ const renderCountry = function (data, classname = '') {
 // btn.addEventListener('click', e => getCountryData('usa'));
 
 // REFACTORED WITH ERROR HANDLING
-const getJSON = function (url, errorMsg = 'Something went wrong') {
-  return fetch(url).then(response => {
-    console.log(response);
-    if (!response.ok) {
-      throw new Error(`Country not found (${response.status})`);
-    }
-    return response.json();
-  });
-};
+// const getJSON = function (url, errorMsg = 'Something went wrong') {
+//   return fetch(url).then(response => {
+//     console.log(response);
+//     if (!response.ok) {
+//       throw new Error(`Country not found (${response.status})`);
+//     }
+//     return response.json();
+//   });
+// };
 
-const getCountryData = function (country) {
-  //Country 1
-  getJSON(`https://restcountries.com/v3.1/name/${country}`, 'Country not found')
-    .then(data => {
-      renderCountry(data[0]);
-      const neighbour = data[0].borders;
-      if (!neighbour) throw new Error('No Neighbor Found');
+// const getCountryData = function (country) {
+//   //Country 1
+//   getJSON(`https://restcountries.com/v3.1/name/${country}`, 'Country not found')
+//     .then(data => {
+//       renderCountry(data[0]);
+//       const neighbour = data[0].borders;
+//       if (!neighbour) throw new Error('No Neighbor Found');
 
-      return getJSON(
-        `https://restcountries.com/v3.1/alpha/${neighbour[0]}`,
-        'Country not Found'
-      );
-    })
-    .then(data => renderCountry(data[0], 'neighbour'))
-    .catch(err => {
-      renderError(`Something went wrong... ${err.message}, Try again.`);
-    })
-    .finally(() => {
-      countriesContainer.style.opacity = 1;
-    });
-};
+//       return getJSON(
+//         `https://restcountries.com/v3.1/alpha/${neighbour[0]}`,
+//         'Country not Found'
+//       );
+//     })
+//     .then(data => renderCountry(data[0], 'neighbour'))
+//     .catch(err => {
+//       renderError(`Something went wrong... ${err.message}, Try again.`);
+//     })
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
 
 // btn.addEventListener('click', e => getCountryData('usa'));
 
@@ -347,3 +347,24 @@ The Complete JavaScript Course
 //   .catch(err => console.error(err));
 
 // ASYNC AWAIT TRAINING
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const whereAmI = async function (country) {
+  const position = await getPosition();
+  const { latitude: lat, longitude: lng } = position.coords;
+  const geoRes = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  const geoData = await geoRes.json();
+  const res = await fetch(
+    `https://restcountries.com/v3.1/name/${geoData.country || country}`
+  );
+  const [data] = await res.json();
+  renderCountry(data);
+  countriesContainer.style.opacity = 1;
+};
+
+whereAmI('japan');
