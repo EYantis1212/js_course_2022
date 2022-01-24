@@ -8,7 +8,7 @@ console.log('Importing Module');
 // console.log(ShoppingCart);
 // const addCartItem = ShoppingCart.addToCart;
 // addCartItem('doll', 35);
-import add from './shoppingCart.js';
+// import add from './shoppingCart.js';
 // add('game', 25);
 
 // Top-Level Await
@@ -29,7 +29,7 @@ import add from './shoppingCart.js';
 
 // lastPost.then(last => console.log(last));
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash';
 
 const state = {
   cart: [
@@ -44,3 +44,7 @@ console.log(stateClone);
 
 const stateDeepClone = cloneDeep(state);
 console.log(stateDeepClone);
+
+// if (module.hot) {
+//   module.hot.accept();
+// }
