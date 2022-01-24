@@ -348,53 +348,52 @@ The Complete JavaScript Course
 
 // ASYNC AWAIT TRAINING
 
-const getPosition = function () {
-  return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-};
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// };
 
-const whereAmI = async function (country) {
-  try {
-    const position = await getPosition();
-    const { latitude: lat, longitude: lng } = position.coords;
-    const geoRes = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-    if (!geoRes.ok) {
-      throw new Error('Problem getting Location Data');
-    }
-    const geoData = await geoRes.json();
-    const res = await fetch(
-      `https://restcountries.com/v3.1/name/${geoData.country || country}`
-    );
-    if (!res.ok) {
-      throw new Error('Problem getting country');
-    }
-    const [data] = await res.json();
-    renderCountry(data);
-    countriesContainer.style.opacity = 1;
-    return `You are in ${geoData.city}, ${geoData.country}`;
-  } catch (err) {
-    renderCountry(`${err.message}`);
+// const whereAmI = async function (country) {
+//   try {
+//     const position = await getPosition();
+//     const { latitude: lat, longitude: lng } = position.coords;
+//     const geoRes = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+//     if (!geoRes.ok) {
+//       throw new Error('Problem getting Location Data');
+//     }
+//     const geoData = await geoRes.json();
+//     const res = await fetch(
+//       `https://restcountries.com/v3.1/name/${geoData.country || country}`
+//     );
+//     if (!res.ok) {
+//       throw new Error('Problem getting country');
+//     }
+//     const [data] = await res.json();
+//     renderCountry(data);
+//     countriesContainer.style.opacity = 1;
+//     return `You are in ${geoData.city}, ${geoData.country}`;
+//   } catch (err) {
+//     renderCountry(`${err.message}`);
 
-    // Reject promise returned from async function
-    throw err;
-  }
-};
+//     // Reject promise returned from async function
+//     throw err;
+//   }
+// };
 
-(async function () {
-  try {
-    const city = await whereAmI();
-    console.log(`${city}`);
-  } catch (err) {
-    console.error(`${err.message}`);
-  }
-})();
+// (async function () {
+//   try {
+//     const city = await whereAmI();
+//     console.log(`${city}`);
+//   } catch (err) {
+//     console.error(`${err.message}`);
+//   }
+// })();
 
 // Running Promises in Parallel
 
 const getJSON = function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then(response => {
-    console.log(response);
     if (!response.ok) {
       throw new Error(`Country not found (${response.status})`);
     }
@@ -402,17 +401,58 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
   });
 };
 
-const get3Countries = async function (c1, c2, c3) {
-  try {
-    const data = await Promise.all([
-      getJSON(`https://restcountries.com/v3.1/name/${c1}`),
-      getJSON(`https://restcountries.com/v3.1/name/${c2}`),
-      getJSON(`https://restcountries.com/v3.1/name/${c3}`),
-    ]);
-    console.log(data.map(d => d[0].capital));
-  } catch (err) {
-    console.error(err);
-  }
+// const get3Countries = async function (c1, c2, c3) {
+//   try {
+//     const data = await Promise.all([
+//       getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+//       getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+//       getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+//     ]);
+//     console.log(data.map(d => d[0].capital));
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+// get3Countries('usa', 'japan', 'canada');
+
+// Promise.race -  First settled promise (resolved or rejected) wins the race
+
+// (async function () {
+//   const res = await Promise.race([
+//     getJSON(`https://restcountries.com/v3.1/name/usa`),
+//     getJSON(`https://restcountries.com/v3.1/name/japan`),
+//     getJSON(`https://restcountries.com/v3.1/name/russia`),
+//   ]);
+//   console.log(res[0]); // Whichever is fastest..then shortcircuits
+// })();
+
+const timeout = function (sec) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error('Request took too long'));
+    }, sec * 1000);
+  });
 };
 
-get3Countries('usa', 'japan', 'canada');
+Promise.race([getJSON(`https://restcountries.com/v3.1/name/usa`), timeout(5)])
+  .then(res => console.log(res[0]))
+  .catch(err => console.log(err));
+
+// Promise.allSettled - returns array of all promises (rejected or resolved) never shortcircuits
+
+Promise.allSettled([
+  Promise.resolve('Weeeeeeee'),
+  timeout(2),
+  Promise.reject('Ahhhhh'),
+]).then(res => console.log(res));
+
+// promise.any - ES2021 Only resolved promises return
+
+Promise.any([
+  Promise.resolve('Weeeeeeee'),
+  timeout(2),
+  Promise.reject('Ahhhhh'),
+]).then(res => console.log(res));
+
+//Coding Challenge 3
